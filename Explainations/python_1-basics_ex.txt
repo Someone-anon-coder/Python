@@ -1,0 +1,103 @@
+# Variable Declaration
+"""Rules for variable declaration:
+    Variable names must start with a letter or an underscore (_).
+    They cannot start with a number.
+    Names can contain letters, numbers, and underscores.
+    Variable names are case-sensitive (Age and age are different).
+"""
+
+"""Data Types:
+    Integers (int): Whole numbers, e.g., 10, -5
+    Floating-point numbers (float): Decimal numbers, e.g., 3.14, -7.5
+    Strings (str): Textual data enclosed in quotes, e.g., "Hello", 'Python'
+    Booleans (bool): Represents True or False
+    None: Represents a null or undefined value, using the keyword None
+"""
+
+name: str = "Someone"  # Declaring name as a string variable with value 'Someone'
+age: int = 100  # Declaring age as an integer variable with value 100
+height: float = 6.7  # Declaring height as a float variable with value 6.7
+is_student: bool = False  # Declaring is_student as a boolean variable with value False
+
+
+# Operators - Arithmetic
+x: int = 10 # Declaring x as an integer variable with value 10
+y: int = 5 # Declaring y as an integer variable with value 5
+
+# Printing the results of arithmetic operations between x and y
+print(f"Addition: {x + y}")
+print(f"Subtraction: {x - y}")
+print(f"Multiplication: {x * y}")
+print(f"Division: {x / y}")
+print(f"Floor Division: {x // y}")
+print(f"Modulus: {x % y}")
+print(f"Exponentiation: {x ** y}")
+
+
+# Operators - Comparison
+x: int = 5 # Declaring x as an integer variable with value 5
+y: int = 3 # Declaring y as an integer variable with value 3
+
+# Printing the results of comparison operations between x and y
+print(f"Equal to: {x == y}")
+print(f"Not equal to: {x != y}")
+print(f"Greater than: {x > y}")
+print(f"Less than: {x < y}")
+print(f"Greater than or equal to: {x >= y}")
+print(f"Less than or equal to: {x <= y}")
+
+
+# Operators - Logical
+a: bool = True # Declaring a as a boolean variable with value True 
+b: bool = False # Declaring b as a boolean variable with value False
+
+# Printing the results of logical operations between a and b
+print(f"Logical AND: {a and b}")
+print(f"Logical OR: {a or b}")
+print(f"Logical NOT: {not a}")
+
+
+# Operators - Bitwise
+x: int = 5 # Declaring x as an integer variable with value 5
+y: int = 3 # Declaring y as an integer variable with value 3
+
+# Printing the results of bitwise operations between x and y
+print(f"Bitwise AND: {x & y}")
+print(f"Bitwise OR: {x | y}")
+print(f"Bitwise XOR: {x ^ y}")
+print(f"Bitwise NOT: {~x}")
+print(f"Left shift: {x << 2}")
+print(f"Right shift: {x >> 1}")
+
+
+# Input / Output
+name: str = input("Enter your name: ")  # Prompting the user to enter their name and storing it in the name variable
+print(f"Hello, {name}!")  # Printing a greeting message using the name entered by the user
+
+# Comments - Single line
+# This is a single-line comment
+name: str = "Someone" # Declaring name as a string variable with value 'Someone'
+
+
+# Comments - Multiline
+"""
+This is a multiline comment.
+It can span multiple lines.
+"""
+
+
+# Documentation Strings
+# Declaring a function that takes two integers as input and returns their sum
+def add(num1: int, num2: int) -> int:
+    """
+    This function takes two integers as input and returns their sum.
+
+    Args:
+        num1 (int): The first integer.
+        num2 (int): The second integer.
+
+    Returns:
+        int: The sum of the two integers.
+    """
+    
+    return num1 + num2 # Returning the sum of the two integers
