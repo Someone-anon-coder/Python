@@ -15,8 +15,8 @@ Below is the list of topics that I plan to cover, categorized from beginner to a
   - [✅] Operators
   - [✅] Input/Output
 - [🟡] **2. Control Flow**
-  - [🟡] Conditional Statements (`if`, `else`, `elif`)
-  - [ ] Loops (`for`, `while`)
+  - [✅] Conditional Statements (`if`, `else`, `elif`)
+  - [🟡] Loops (`for`, `while`)
   - [ ] Loop Control Statements (`break`, `continue`, `pass`)
 - [ ] **3. Functions and Modules**
   - [ ] Defining and Calling Functions
@@ -80,7 +80,7 @@ If you're following along and have suggestions or improvements, feel free to sub
 
 ## 📈 Progress Tracking
 
-You can check my progress by navigating through the folders of each topic. As I learn new concepts, I will update this list with links to relevant code examples and explanations.
+You can check my progress by navigating through each topic. As I learn new concepts, I will update this list with links to relevant code examples and explanations.
 
 - ✅ Completed
 - 🟡 In Progress
@@ -91,7 +91,7 @@ Stay tuned as I add more content and update my progress! 😊
 
 Here are some resources that I am using to learn Python:
 - [Official Python Documentation](https://docs.python.org/3/)
-- [Getting various Topics](https://chatgpt.com/)
+- [Getting and learning various Topics](https://chatgpt.com/)
 
 ## 📬 Contact
 

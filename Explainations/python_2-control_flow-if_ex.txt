@@ -1,0 +1,36 @@
+# Creating a integer variable with the value 45
+number: int = 45
+
+# Check if the number is even or odd
+if number % 2 == 0:
+    print("The number is even.")
+else:
+    print("The number is odd.")
+
+
+# Creating a integer variable with a value of -5
+number: int = -5
+
+# Check if the number is positive, negative, or zero
+if number > 0:
+    print("The number is positive.")
+elif number < 0:
+    print("The number is negative.")
+else:
+    print("The number is zero.")
+
+
+# Creating a integer variable with a value of 18
+age: int = 18
+
+# Creating a string variable with a value of "male"
+gender: str = "male"
+
+# Check if the person is an adult male or adult female
+if age >= 18:
+    if gender == "male": # Above 18 and male
+        print("You are an adult male.")
+    elif gender == "female": # Above 18 and female
+        print("You are an adult female.")
+else: # Below 18
+    print("You are not an adult.")
