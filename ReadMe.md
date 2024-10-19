@@ -84,7 +84,6 @@ You can check my progress by navigating through the folders of each topic. As I 
 
 - ✅ Completed
 - 🟡 In Progress
-- ❌ Not Started
 
 Stay tuned as I add more content and update my progress! 😊
 
