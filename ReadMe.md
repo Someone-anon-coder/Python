@@ -9,8 +9,8 @@ This repository is a documentation of my progress as I learn and explore Python 
 Below is the list of topics that I plan to cover, categorized from beginner to advanced. Each topic will have its own directory with code examples, explanations, and relevant notes.
 
 ### Topics:
-- [ ] **1. Basics of Python**
-  - [ ] Variables
+- [🟡] **1. Basics of Python**
+  - [🟡] Variables
   - [ ] Data Types
   - [ ] Operators
   - [ ] Input/Output
