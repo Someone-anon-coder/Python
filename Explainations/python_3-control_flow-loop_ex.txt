@@ -1,0 +1,45 @@
+# Creating a list of fruits
+fruits: list[str] = ['apple', 'banana', 'cherry']
+
+# Looping through fruits with for loop
+for fruit in fruits:
+    print(fruit)
+
+
+# Looping to print numbers towards 5 from 0, excluding 5
+for i in range(5):
+    print(i)
+
+
+# Looping to print numbers from 10 to 2, decreasing by 2
+for i in range(10, 2, -2):
+    print(i)
+
+
+# Looping through two lists with zip function and printing them together
+for i, j in zip(range(2, 10, 2), range(1, 9, 2)):
+    print(f"Odd: {j}, Even: {i}")
+
+
+# Looping towards n and i + 1 with nested loops and printing stars
+n: int = 5
+for i in range(n):
+    for j in range(i + 1):
+        print("*", end="")
+    print()
+
+
+# Creating a integer variable and assigning value 0
+count: int = 0
+
+# Looping towards 5 from 0 and printing count variable each time with while loop, increasing count by 1
+while count < 5:
+    print(count)
+    count += 1
+
+
+# Looping towards 0 from 10 and printing count variable each time with while loop, decreasing count by 1
+count: int = 10
+while count > 0:
+    print(count)
+    count -= 1
