@@ -17,11 +17,11 @@ Below is the list of topics that I plan to cover, categorized from beginner to a
 - [🟡] **2. Control Flow**
   - [✅] Conditional Statements (`if`, `else`, `elif`)
   - [✅] Loops (`for`, `while`)
-  - [🟡] Loop Control Statements (`break`, `continue`, `pass`)
-- [ ] **3. Functions and Modules**
-  - [ ] Defining and Calling Functions
-  - [ ] Function Arguments and Return Values
-  - [ ] Lambda Functions
+  - [✅] Loop Control Statements (`break`, `continue`, `pass`)
+- [🟡] **3. Functions and Modules**
+  - [✅] Defining and Calling Functions
+  - [✅] Function Arguments and Return Values
+  - [🟡] Lambda Functions
   - [ ] Modules and Packages
 - [ ] **4. Data Structures**
   - [ ] Lists

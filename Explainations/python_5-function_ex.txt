@@ -1,0 +1,77 @@
+# Creating a function to print "Hello"
+def greet() -> None:
+    """Prints a greeting.
+    """
+    
+    print("Hello")
+
+# Calling the function
+greet()
+
+
+def greet(name: str, age: int) -> None:
+    """Prints a greeting.
+
+    Args:
+        name: The name of the person to greet.
+        age: The age of the person to greet.
+    """
+    
+    print(f"Hello, {name}! You are {age} years old.")
+
+# Calling the function with arguments
+greet("Someone", 100)
+
+# Calling the function with keyword arguments
+greet(age=84, name="Someone Else")
+
+
+# Creating a function with a default argument
+def greet(name: str, age: int=100) -> str:
+    """Prints a greeting
+
+    Args:
+        name: The name of the person to greet.
+        age: The age of the person to greet. Defaults to 100.
+    """
+
+    print(f"Hello, {name}! You are {age} years old.")
+
+# Calling the function with a default argument
+greet("Someone")
+
+
+# Creating a function with a variable number of arguments
+def add(*nums) -> int:
+    """Adds a variable number of numbers.
+
+    Args:
+        *nums: The numbers to add.
+    """
+
+    total = 0
+    for num in nums:
+        total += num
+    
+    # Returning the total
+    return total
+
+# Calling the function with a variable number of arguments
+print("Total:", add(1, 2, 3, 4, 5))
+
+
+# Creating a function with a variable number of keyword arguments
+def greet(**kwargs) -> None:
+    """Prints a greeting.
+
+    Args:
+        **kwargs: The keyword arguments to print.
+    """
+
+    for key, value in kwargs.items():
+
+        # Printing the key and value of each argument
+        print(f"{key}: {value}")
+
+# Calling the function with a variable number of keyword arguments
+greet(name="Someone", age=100)
