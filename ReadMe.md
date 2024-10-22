@@ -14,7 +14,7 @@ Below is the list of topics that I plan to cover, categorized from beginner to a
   - [✅] Data Types
   - [✅] Operators
   - [✅] Input/Output
-- [🟡] **2. Control Flow**
+- [✅] **2. Control Flow**
   - [✅] Conditional Statements (`if`, `else`, `elif`)
   - [✅] Loops (`for`, `while`)
   - [✅] Loop Control Statements (`break`, `continue`, `pass`)
