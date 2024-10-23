@@ -1,0 +1,56 @@
+# Creating a function that adds two numbers and returns the result
+def add(num1: int, num2: int) -> int:
+    """Add two numbers together
+    
+    Args:
+        num1 (int): First number
+        num2 (int): Second number
+    
+    Returns:
+        int: Sum of num1 and num2
+    """
+
+    return num1 + num2
+
+# Calling the function and printing the result
+print(add(1, 2))
+
+# Creating a lambda function that adds two numbers
+add = lambda num1, num2: num1 + num2
+
+# Calling the lambda function and printing the result
+print(add(3, 4))
+
+# Creating a lambda function that prints a greeting
+greeting = lambda name: print(f'Hello, {name}')
+
+# Calling the lambda function with an argument
+greeting('Bob')
+
+
+# Creating a function with local variable 'x' and printing it
+def something() -> None:
+    """Creates local variable 'x' and prints it
+    """
+    
+    x = 10
+    print(x)
+
+# Calling the function
+something()
+# print(x) # This will give an error as x is local variable
+
+
+# Creating a function with global variable 'x' and printing it
+def something() -> None:
+    """Creates global variable 'x' and prints it
+    """
+    
+    global x
+    x = 10
+    
+    print("From function", x)
+
+# Calling the function
+something()
+print("Not from function", x) # This will not give an error as x is global variable
