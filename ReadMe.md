@@ -26,7 +26,7 @@ Below is the list of topics that I plan to cover, categorized from beginner to a
 - [🟡] **4. Data Structures**
   - [✅] Lists
   - [✅] Tuples
-  - [ ] Sets
+  - [🟡] Sets
   - [ ] Dictionaries
   - [ ] List Comprehensions
 - [ ] **5. String Manipulation**
