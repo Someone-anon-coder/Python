@@ -1,0 +1,55 @@
+# Create a list of the first 10 square numbers and print the list
+squares = [x*x for x in range(1, 11)]
+print(f"Squares: {squares}")
+
+
+# Create a list of even numbers from 1 to 10 with condition in list comprehension
+even_numbers = [x for x in range(1, 11) if x % 2 == 0]
+print(f"Even Numbers: {even_numbers}")
+
+# Create a list of odd numbers from 1 to 10 with condition in list comprehension
+odd_numbers = [x for x in range(1, 11) if x % 2 != 0]
+print(f"Odd Numbers: {odd_numbers}")
+
+
+# List of fruits
+fruits = ["apple", "banana", "cherry", "date"]
+
+# Create a new list with uppercase fruits using list comprehension and printing list
+upper_fruits = [fruit.upper() for fruit in fruits]
+print(f"Upper Fruits: {upper_fruits}")
+
+
+# Creating a 3x3 matrix
+matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+
+# Flatten the matrix using nested list comprehension
+flattened = [num for row in matrix for num in row]
+print(f"Flattened Matrix: {flattened}")
+
+
+# Create a dictionary with squares of numbers from 1 to 10 using dictionary comprehension and printing dictionary
+squares_dict = {x: x*x for x in range(1, 11)}
+print(f"Squares Dictionary: {squares_dict}")
+
+
+# Dict with numbers as keys and multiples of 5 as values
+numbers_dict = {1:10, 2:15, 3:20, 4:25, 5:30}
+
+# Create a new dictionary with keys and values where values are even using dictionary comprehension and printing dictionary
+even_numbers_dict = {k: v for k, v in numbers_dict.items() if v % 2 == 0}
+print(f"Even Numbers Dictionary: {even_numbers_dict}")
+
+
+# List of fruits and list of colors
+fruits = ["apple", "banana", "cherry", "date"]
+colors = ["red", "yellow", "red", "green"]
+
+# Create a dictionary with fruit as key and color as value using dictionary comprehension and printing dictionary
+fruit_colors = {fruit: color for fruit, color in zip(fruits, colors)}
+print(f"Fruit Colors Dictionary: {fruit_colors}")
+
+
+# Creating a dictionary with multiplication table for 1 to 5 numbers from 1 to 5 using dictionary comprehension and printing dictionary
+multiplication_table = {i: {j: i * j for j in range(1, 6)} for i in range(1, 6)}
+print(multiplication_table)

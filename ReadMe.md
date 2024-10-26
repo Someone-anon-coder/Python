@@ -23,15 +23,15 @@ Below is the list of topics that I plan to cover, categorized from beginner to a
   - [✅] Function Arguments and Return Values
   - [✅] Lambda Functions
   - [✅] Modules and Packages
-- [🟡] **4. Data Structures**
+- [✅] **4. Data Structures**
   - [✅] Lists
   - [✅] Tuples
   - [✅] Sets
   - [✅] Dictionaries
-  - [🟡] List Comprehensions
-  - [🟡] Dict Comprehensions
-- [ ] **5. String Manipulation**
-  - [ ] String Methods
+  - [✅] List Comprehensions
+  - [✅] Dict Comprehensions
+- [🟡] **5. String Manipulation**
+  - [🟡] String Methods
   - [ ] Formatting Strings
   - [ ] Working with Regular Expressions
 - [ ] **6. File Handling**
