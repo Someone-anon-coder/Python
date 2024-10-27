@@ -31,8 +31,8 @@ Below is the list of topics that I plan to cover, categorized from beginner to a
   - [✅] List Comprehensions
   - [✅] Dict Comprehensions
 - [🟡] **5. String Manipulation**
-  - [🟡] String Operations
-  - [🟡] String Methods
+  - [✅] String Operations
+  - [✅] String Methods
   - [ ] Formatting Strings
   - [ ] Working with Regular Expressions
 - [ ] **6. File Handling**
