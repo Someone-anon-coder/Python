@@ -1,0 +1,81 @@
+# Creating a string by concatenating two string and printing it
+greeting = "Hello" + "World"
+print(f"The greeting is: {greeting}")
+
+
+# Creating a string by multiplying it with a number 3 to create 3 occurances of the string and printing it
+laugh = "ha" * 3
+print(f"I am laughing {laugh}")
+
+
+# Creating a string and printing its length
+word = "Something"
+print(f"The length of the word is: {len(word)}")
+
+
+# Creating a string
+word = "Python"
+
+# Printing the first and last character of the string
+print(f"The first character of the word is: {word[0]}")
+print(f"The last character of the word is: {word[-1]}")
+
+# Checking if the word contains the substring "Py"
+print(f"The 'Py' is in the word: {'Py' in word}")
+print(f"The 'py' is not in the word: {'py' not in word}")
+
+
+# Printing string with escape character '\"'
+print(f"He said: \"Hello\"")
+
+
+# Creating a string with 3 words
+text = "The Python Programming"
+
+# Printing strings in different formats: upper, lower, title, capitalize, swapcase
+print(f"The upper of text is: {text.upper()}")
+print(f"The lower of text is: {text.lower()}")
+print(f"The title of text is: {text.title()}")
+print(f"The capitalize of text is: {text.capitalize()}")
+print(f"The swapcase of text is: {text.swapcase()}")
+
+
+# Creating a string with 2 words
+text = "Hello, World"
+
+# Checking the location of substring in the string
+print(f"\"World\" is at location {text.find('World')}")
+# print(f"\"Python\" is at location {text.index('Python')}") # Raises Error if substring not found
+
+# Replacing a substring in the string
+print(f"Replacing \"World\" with \"Python\": {text.replace('World', 'Python')}")
+
+
+# Creating a string with 3 words and spaces at the beginning and end of the string
+text = "    Python is great    "
+
+# Printing string by removing spaces at the beginning and end of the string
+print(f"The strip of text is: {text.strip()}")
+
+# Printing string by removing spaces at the beginning of the string
+print(f"The left strip of text is: {text.lstrip()}")
+
+# Printing string by removing spaces at the end of the string
+print(f"The right strip of text is: {text.rstrip()}")
+
+# Printing string by splitting the string into a list of words and joining the list into a string
+print(f"The split of text is: {text.strip().split()}")
+print(f"The join of text is: {' '.join(['Python', 'is', 'great'])}")
+
+
+# Printing if string is alphabetic, numeric, or alphanumeric
+print(f"Is the text alphabetic: {'Python'.isalpha()}")
+print(f"Is the text numeric: {'1234'.isnumeric()}")
+print(f"Is the text alphanumeric: {'Python123'.isalnum()}")
+
+
+# Creating a string with 3 words
+text = "python is amazing"
+
+# Printing string by Upper casing the first word and joining the rest of the words with '!' at the end
+print(f"Formatted text: {text.split()[0].upper() + ', ' + text.split()[1:] + '!'}")
