@@ -30,13 +30,13 @@ Below is the list of topics that I plan to cover, categorized from beginner to a
   - [✅] Dictionaries
   - [✅] List Comprehensions
   - [✅] Dict Comprehensions
-- [🟡] **5. String Manipulation**
+- [✅] **5. String Manipulation**
   - [✅] String Operations
   - [✅] String Methods
-  - [🟡] Formatting Strings
-  - [🟡] Working with Regular Expressions
-- [ ] **6. File Handling**
-  - [ ] Reading and Writing Files
+  - [✅] Formatting Strings
+  - [✅] Working with Regular Expressions
+- [🟡] **6. File Handling**
+  - [🟡] Reading and Writing Files
   - [ ] Working with different file types (text, CSV, JSON)
 - [ ] **7. Error Handling and Exceptions**
   - [ ] Understanding Exceptions

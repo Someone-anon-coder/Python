@@ -1,0 +1,64 @@
+# Creating a string 'Hello, World!'
+text = "Hello, World!"
+
+# printing the string from 0 to 5 index. excluding 5
+print(text[:5])
+
+# printing the string from 7 to the end of the string
+print(text[7:])
+
+# printing the string from -1 to -6 index. Checking from the end of the string
+print(text[-6: -1])
+
+# Printing each second character of the string
+print(text[::2])
+
+# Printing the string in reverse order
+print(text[::-1])
+
+# Importing the re module to use regular expressions
+import re
+
+# Creating a string
+text = "Hello, World!"
+
+# Using regex to match 'Hello' in the string
+print(re.match("Hello", text))
+
+# Using regex to search for 'World' in the string
+print(re.search("World", text))
+
+# Using regex to find all occurrences of 'l' in the string
+print(re.findall("l", text))
+
+
+# Creating a string
+text = "Hello, World!"
+
+# Using regex to replace 'World' with 'Python' in the string
+print(re.sub("World", "Python", text))
+
+# Using regex to split the string at ','
+print(re.split(",", text))
+
+
+# Creating a string
+text = "My number is 12345 and zip is 54321"
+
+# Using regex to find all numbers in the string
+print(re.findall("\d+", text))
+
+
+# Creating a string
+email = "abc@gmail.com"
+
+# Using regex to check if the email is valid
+print(f"Email is valid:", bool(re.match(r"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$", email)))
+
+
+# Creating a string
+text = "The quick brown fox jumps over the lazy dog"
+
+# Using regex to find all words in the string
+words = re.findall(r"\b\w+\b", text)
+print(words)
