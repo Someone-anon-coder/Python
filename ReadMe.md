@@ -33,8 +33,8 @@ Below is the list of topics that I plan to cover, categorized from beginner to a
 - [🟡] **5. String Manipulation**
   - [✅] String Operations
   - [✅] String Methods
-  - [ ] Formatting Strings
-  - [ ] Working with Regular Expressions
+  - [🟡] Formatting Strings
+  - [🟡] Working with Regular Expressions
 - [ ] **6. File Handling**
   - [ ] Reading and Writing Files
   - [ ] Working with different file types (text, CSV, JSON)
