@@ -1,0 +1,59 @@
+# Opening a file for reading and printing its contents
+with open("Files/read_example.txt", 'r', encoding='utf8') as file:
+    print(file.read())
+
+
+# Opening a file for reading and reading it line by line
+with open("Files/read_example.txt", 'r', encoding='utf8') as file:
+    for line in file:
+        print(line)
+    
+
+# Opening a file for reading and reading it line by line and storing it in a list and printing first line
+with open("Files/read_example.txt", 'r', encoding='utf8') as file:
+    lines = file.readlines()
+    print(lines[0])
+
+
+# Opening a file for writing and writing 2 lines in it
+with open("Files/write_example.txt", 'w', encoding='utf8') as file:
+    file.write("Hello World!\n")
+    file.write("This is a new line.\n")
+
+
+# Opening a file for appending and appending a line in it
+with open("Files/append_example.txt", 'a', encoding='utf8') as file:
+    file.write("This is a new line.\n")
+
+
+# Importing csv module for easier csv handling
+import csv
+
+# Opening a csv file for reading and printing it row by row
+with open("Files/read_example.csv", 'r', encoding='utf8') as file:
+    reader = csv.reader(file)
+    for row in reader:
+        print(row)
+
+
+# Opening a csv file for writing and writing header and 2 rows in it
+with open("Files/write_example.csv", 'w', encoding='utf8', newline='') as file:
+    writer = csv.writer(file)
+    writer.writerow(["Name", "Age", "Gender"])
+    writer.writerow(["Someone", 100, "male"])
+    writer.writerow(["Someone Else", 84, "female"])
+
+
+# Importing json module for easier json handling
+import json
+
+# Opening a json file for reading and printing its content
+with open("Files/read_example.json", 'r', encoding='utf8') as file:
+    data = json.load(file)
+    print(data)
+
+
+# Opening a json file for writing and writing a dictionary in it
+with open("Files/write_example.json", 'w', encoding='utf8') as file:
+    data = {"name": "Someone", "age": 100, "gender": "male"}
+    json.dump(data, file, indent=4)
