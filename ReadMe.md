@@ -40,8 +40,8 @@ Below is the list of topics that I plan to cover, categorized from beginner to a
   - [✅] Working with file paths
   - [✅] Exception Handling in File Operations
 - [🟡] **7. Error Handling and Exceptions**
-  - [🟡] Understanding Exceptions
-  - [🟡] `try`, `except`, `else`, and `finally` blocks
+  - [✅] Understanding Exceptions
+  - [✅] `try`, `except`, `else`, and `finally` blocks
   - [ ] Custom Exception Handling
 - [ ] **8. Object-Oriented Programming (OOP)**
   - [ ] Classes and Objects

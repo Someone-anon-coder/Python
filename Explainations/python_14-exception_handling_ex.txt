@@ -1,0 +1,47 @@
+# Example of syntax error and runtime error
+"""
+if True # Syntax Error - ':' was expected
+    print("Hello")
+
+print(10 / 0) # ZeroDivision Exception - Tried dividing by zero
+"""
+
+
+# Trying to divide by zero and handling the ZeroDivision Error
+try:
+    value = 10 / 0
+except ZeroDivisionError:
+    print("Division by zero is not allowed.")
+
+
+# Trying to convert a string to an integer and handling the ValueError and TypeError seperately
+try:
+    value = int("abc")
+except ValueError:
+    print("Invalid value.")
+except TypeError:
+    print("Invalid type.")
+
+
+# Trying to convert a string to an integer and handling both ValueError and TypeError together
+try:
+    value = int("abc")
+except (ValueError, TypeError):
+    print("Invalid value or type.")
+
+
+# Trying to divide by zero and handling the General Exception
+try:
+    print(10 / 0)
+except Exception as e:
+    print(f"An error occurred: {e}")
+
+
+# Trying to divide by zero and handling the General Exception and finally block to end the program regaredless of the exception
+try:
+    print("Program Start")
+    print(10 / 0)
+except Exception as e:
+    print(f"An error occurred: {e}")
+finally:
+    print("Program End")
