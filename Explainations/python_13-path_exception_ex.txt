@@ -1,0 +1,116 @@
+# Importing os module for working with the operating system
+import os
+
+# Printing the current working directory
+print(f"Current working directory: {os.getcwd()}")
+
+
+# Joining paths with the 'os.path.join()' function and printing the result
+file_path = os.path.join("folder", "subfolder", "file.txt")
+print(f"File path: {file_path}")
+
+
+# Creating a variable to a path
+path = "Files/read_example.txt"
+
+# Printing the basename of the path
+print(f"Basename of path: {os.path.basename(path)}")
+
+# Printing the directory name of the path
+print(f"Directory of path: {os.path.dirname(path)}")
+
+# Checking if the path exists
+print(f"If path exists: {os.path.exists(path)}")
+
+# Checking if the path is a directory
+print(f"Is path a directory: {os.path.isdir(path)}")
+
+# Checking if the path is a file
+print(f"Is path a file: {os.path.isfile(path)}")
+
+# Printing the absolute path of the path
+print(f"Absolute path of path: {os.path.abspath(path)}")
+
+
+# Importing the 'Path' class from the 'pathlib' module
+from pathlib import Path
+
+# Creating a 'Path' object from a string representing a path
+path = Path("Files/read_example.txt")
+
+# Printing name and parent attributes of the 'Path' object
+print(f"Name of path: {path.name}")
+print(f"Parent of path: {path.parent}")
+
+# Checking if the 'Path' object exists, is a file, or a directory
+print(f"If path exists: {path.exists()}")
+print(f"Is path a directory: {path.is_file()}")
+print(f"Is path a file: {path.is_dir()}")
+
+# Printing the absolute path of the 'Path' object
+print(f"Absolute path of path: {path.resolve()}")
+
+
+# Trying to open a file and printing its contents
+try:
+    with open("example.txt", 'r') as file:
+        print(file.read())
+
+# Handling 'FileNotFoundError' exception
+except FileNotFoundError:
+    print("File not found")
+
+# Handling 'PermissionError' exception
+except PermissionError:
+    print("Permission denied")
+
+
+# Trying to open a file and read its contents
+try:
+    with open("example.txt", "r") as file:
+        content = file.read()
+
+# Handling 'FileNotFoundError' exception
+except FileNotFoundError:
+    print("File not found.")
+
+# Handling 'PermissionError' exception
+except PermissionError:
+    print("Permission denied.")
+
+# Handling other exceptions
+except Exception as e:
+    print(f"An error occurred: {e}")
+
+
+# Trying to open a file and read its contents
+try:
+    with open("example.txt", "r") as file:
+        content = file.read()
+
+# Handling 'FileNotFoundError' exception
+except FileNotFoundError:
+    print("File not found.")
+
+# Handling other exceptions
+except Exception as e:
+    print(f"An error occurred: {e}")
+
+# If no error occurs, print the content
+else:
+    print("File read successfully:", content)
+
+
+# Trying to open a file and read its contents
+try:
+    file = open("example.txt", "r")
+    content = file.read()
+    file.close()
+
+# Handling 'FileNotFoundError' exception
+except FileNotFoundError:
+    print("File not found.")
+
+# Ending the program regardless of exceptions
+finally:
+    print("Program end)
