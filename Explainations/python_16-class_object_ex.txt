@@ -76,8 +76,3 @@ file2.write("Bye, World!")
 
 # Deleting the objects to close the files
 del file1, file2 # Not necessary as python handles the destruction of objects automatically.
-
-
-Exploring the Basics of Python Classes
-
-In this post, we’ll dive deep into using Python classes to create objects for a range of use cases. Classes allow us to model real-world entities by defining both their characteristics (variables) and actions (methods).
