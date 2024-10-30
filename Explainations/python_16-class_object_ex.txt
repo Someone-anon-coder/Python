@@ -1,0 +1,83 @@
+# Creating a class
+class Person:
+
+    # Creating a string class variable
+    species: str = "Human"
+
+    # Creating a method with 1 parameter
+    def greet(self, name: str):
+        print(f"Hello, I am {name}")
+
+# Creating object of class Person and calling the method greet
+person1: Person = Person()
+person1.greet("Someone")
+
+# Creating another object of class Person and calling the method greet
+person2: Person = Person()
+person2.greet("Someone Else")
+
+# Accessing and printing the class variable species from both objects
+print(f"Person1 is a {person1.species}")
+print(f"Person2 is a {person2.species}")
+
+
+# Creating a class
+class Car:
+
+    # Creating a constructor with 2 parameters
+    def __init__(self, color: str, year: int):
+        self.color: str = color
+        self.year: int = year
+
+    # Creating a method
+    def drive(self):
+        print(f"The {self.color} car is driving.")
+
+# Creating a object of class Car and calling the method drive()
+car1: Car = Car("Red", 2022) # Calling the constructor with 2 parameters. __init__ method is called automatically.
+car1.drive()
+
+# Creating another object of class Car and calling the method drive()
+car2: Car = Car("Blue", 2021) # Calling the constructor with 2 parameters. __init__ method is called automatically.
+car2.drive()
+
+# Accessing and printing the class variables color and year from both objects
+print(f"{car1.color} car was made in {car1.year}")
+print(f"{car2.color} car was made in {car2.year}")
+
+
+# Creating a class for handling files
+class FileHandling:
+
+    # Creating a constructor with 1 parameter
+    def __init__(self, filename: str):
+        self.filename: str = filename
+        self.file: object = open(filename, 'w') # Opening a file in write mode
+        
+        print(f"File {filename} opened")
+    
+    # Creating a method with 1 parameter to write to a file
+    def write(self, text: str):
+        self.file.write(text)
+        print(f"File {self.filename} written")
+    
+    # Creating a destructor to close the file
+    def __del__(self):
+        self.file.close()
+        print(f"File {self.filename} closed")
+
+# Creating an object of class FileHandling and calling the method write()
+file1: FileHandling = FileHandling("Files/class_file1.txt")
+file1.write("Hello, World!")
+
+# Creating another object of class FileHandling and calling the method write()
+file2: FileHandling = FileHandling("Files/class_file2.txt")
+file2.write("Bye, World!")
+
+# Deleting the objects to close the files
+del file1, file2 # Not necessary as python handles the destruction of objects automatically.
+
+
+Exploring the Basics of Python Classes
+
+In this post, we’ll dive deep into using Python classes to create objects for a range of use cases. Classes allow us to model real-world entities by defining both their characteristics (variables) and actions (methods).
