@@ -1,0 +1,64 @@
+# Creating a class for custom exception 
+class CustomException(Exception):
+    pass
+
+# Trying to get a positive number from user
+try:
+    if int(input("Enter positive number: ")) < 0:
+
+        # Raising custom exception if number is negative
+        raise CustomException("Only positive numbers are allowed.")
+
+# Handling custom exception
+except CustomException as e:
+    print(f"Error: {e}")
+
+
+# Creating a class for custom exception handling with code
+class ValidationError(Exception):
+    def __init__(self, message, code):
+        super().__init__(message)
+        self.code = code
+
+# Creating a dictionary of users with their favorite animals
+users = {
+    "abc": "cat", 
+    "pqr": "dog", 
+    "xyz": "zebra"
+}
+
+# Taking user input for username and favorite animal
+try:
+    username = input("Enter your username: ")
+    if username not in users:
+
+        # Raising custom exception if username is not in the dictionary
+        raise ValidationError("Invalid username.", 400)
+    
+    favorite_animal = input("Enter your favorite animal: ")
+    if favorite_animal != users[username]:
+
+        # Raising custom exception if favorite animal is not of the user in the dictionary
+        raise ValidationError("Invalid favorite animal.", 401)
+
+    # Printing success message if username and favorite animal are valid
+    print("Login successful.")
+
+# Handling custom exception with code
+except ValidationError as e:
+    print(f"Error: {e}, Code: {e.code}")
+
+
+# Creating a class for custom exception handling with message and config key
+class ConfigError(Exception):
+    def __init__(self, message, config_key):
+        super().__init__(message)
+        self.config_key = config_key
+
+# Raising custom exception with message and config key
+try:
+    raise ConfigError("Invalid configuration value", "database_url")
+
+# Handling custom exception with message and config key
+except ConfigError as e:
+    print(f"Error: {e}, Config Key: {e.config_key}")
