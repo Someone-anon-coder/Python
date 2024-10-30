@@ -44,10 +44,13 @@ Below is the list of topics that I plan to cover, categorized from beginner to a
   - [✅] `try`, `except`, `else`, and `finally` blocks
   - [✅] Custom Exception Handling
 - [🟡] **8. Object-Oriented Programming (OOP)**
-  - [ ] Classes and Objects
+  - [🟡] Classes and Objects
+  - [🟡] Constructors and Destructors
   - [ ] Inheritance
   - [ ] Polymorphism
   - [ ] Encapsulation
+  - [ ] Abstraction
+  - [ ] Magic/Dunder Methods
 - [ ] **9. Working with Libraries and Packages**
   - [ ] NumPy
   - [ ] Pandas
@@ -77,6 +80,12 @@ Below is the list of topics that I plan to cover, categorized from beginner to a
   - [ ] Virtual Environments
   - [ ] Deploying to the Cloud (e.g., AWS, Heroku)
   
+## 📂 Directory Structure
+
+- **Code**: Contains the actual code files for each topic, categorized by folders.
+- **Explanations**: This folder includes markdown or text files explaining each program, code snippets, and concepts covered.
+- **Files**: This folder holds any input, output, or temporary files created or used during the program runs.
+
 ## 🚀 How to Contribute
 
 If you're following along and have suggestions or improvements, feel free to submit a pull request! I welcome contributions that can enhance the learning experience for everyone.
@@ -94,7 +103,7 @@ Stay tuned as I add more content and update my progress! 😊
 
 Here are some resources that I am using to learn Python:
 - [Official Python Documentation](https://docs.python.org/3/)
-- [Getting and learning various Topics](https://chatgpt.com/)
+- [Learning Topics](https://chatgpt.com/)
 
 ## 📬 Contact
 
