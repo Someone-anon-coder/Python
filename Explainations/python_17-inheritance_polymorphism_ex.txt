@@ -1,0 +1,84 @@
+# Creating a class 'Animal'
+class Animal:
+
+    # Creating a method that returns a string
+    def speak(self) -> str:
+        return "Some animal sound"
+
+# Creating a class that inherits from Animal
+class Dog(Animal):
+
+    # Overriding the speak method to return a different string
+    def speak(self) -> str:
+        return "Woof"
+
+# Creating a class that inherits from Animal
+class Cat(Animal):
+
+    # Overriding the speak method to return a different string
+    def speak(self) -> str:
+        return "Meow"
+
+# Creating instances of the classes
+dog: Dog = Dog("Buddy")
+cat: Cat = Cat("Whiskers")
+
+# Calling the speak method on the instances
+print(f"Dog says {dog.speak()}")
+print(f"Cat says {cat.speak()}")
+
+
+# Creating a class 'Vehicle'
+class Vehicle:
+
+    # Creating a constructor with 2 parameters
+    def __init__(self, make: str, model: str) -> None:
+        self.make: str = make
+        self.model: str = model
+    
+    # Creating a method that prints the make and model of the vehicle
+    def info(self) -> None:
+        print(f"Starting {self.make} {self.model}")
+
+# Creating a class 'Car' that inherits from 'Vehicle'
+class Car(Vehicle):
+
+    # Creating a constructor with 3 parameters that calls the constructor of superclass
+    def __init__(self, make: str, model: str, num_doors: int) -> None:
+        super().__init__(make, model)
+        self.num_doors: int = num_doors
+    
+    # Overriding the info method to print the make, model and number of doors of the car
+    def info(self) -> None:
+        print(f"{super().info()} with number of doors: {self.num_doors}")
+
+# Creating an instance of the Car class and calling the info method
+car: Car = Car("Toyota", "Camry", 4)
+car.info()
+
+
+# Creating a class 'Bird'
+class Bird:
+
+    # Creating a method that prints a message
+    def fly(self) -> None:
+        print("Bird is Flying")
+
+# Creating a class 'Airplane' that inherits from 'Bird'
+class Airplane(Bird):
+
+    # Overriding the fly method to print a different message
+    def fly(self) -> None:
+        print("Airplane is Flying")
+
+# Creating a function that takes an object and calls its fly method
+def let_it_fly(entity: object) -> None:
+    entity.fly()
+
+# Creating instances of the classes
+bird: Bird = Bird()
+airplane: Airplane = Airplane()
+
+# Calling the let_it_fly function on the instances
+let_it_fly(bird)
+let_it_fly(airplane)
