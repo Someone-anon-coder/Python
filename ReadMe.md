@@ -48,9 +48,9 @@ Below is the list of topics that I plan to cover, categorized from beginner to a
   - [✅] Constructors and Destructors
   - [✅] Inheritance
   - [✅] Polymorphism
-  - [🟡] Encapsulation
-  - [🟡] Abstraction
-  - [ ] Magic/Dunder Methods
+  - [✅] Encapsulation
+  - [✅] Abstraction
+  - [🟡] Magic/Dunder Methods
 - [ ] **9. Working with Libraries and Packages**
   - [ ] NumPy
   - [ ] Pandas

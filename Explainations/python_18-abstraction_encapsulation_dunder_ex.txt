@@ -1,0 +1,77 @@
+# Creating a class 'BankAccount'
+class BankAccount:
+
+    # Creating a constructor with 2 parameters
+    def __init__(self, owner: str, balance: float = 0.0) -> None:
+        self.owner: str = owner
+        self._account_type: str = "Checking"
+        self.__balance: float = balance
+    
+    # Creating method to deposit amount to balance
+    def deposit(self, amount: float) -> None:
+        self.__balance += amount
+    
+    # Creating method to withdraw amount from balance
+    def withdraw(self, amount: float) -> None:
+        if self.__balance >= amount:
+            self.__balance -= amount
+        else:
+            print("Insufficient funds")
+    
+    # Creating method to get balance
+    def get_balance(self) -> float:
+        return self.__balance
+
+# Creating an instance of the class 'BankAccount'
+account = BankAccount("Someone")
+
+# Using the methods of the class 'BankAccount'
+account.deposit(1000)
+account.withdraw(500)
+
+# Printing the results
+print(f"Account Balance: {account.get_balance()}")
+print(f"Account Type: {account._account_type}")
+
+# Trying to access the private attribute 'balance'
+# print(f"Account Balance: {account.__balance}") # AttributeError: 'BankAccount' object has no attribute '__balance'
+
+
+# Importing ABC and abstractmethod from abc module
+from abc import ABC, abstractmethod
+
+# Creating an abstract class 'Shape'
+class Shape(ABC):
+
+    # Creating an abstract method 'area'
+    @abstractmethod
+    def area(self) -> float:
+        pass
+
+    # Creating an abstract method 'perimeter'
+    @abstractmethod
+    def perimeter(self) -> float:
+        pass
+
+# Creating a class 'Rectangle' that inherits from 'Shape'
+class Rectangle(Shape):
+
+    # Creating a constructor with 2 parameters
+    def __init__(self, width: float, height: float) -> None:
+        self.width: float = width
+        self.height: float = height
+    
+    # Creating method 'area' to define abstract method 'area'
+    def area(self) -> float:
+        return self.width * self.height
+    
+    # Creating method 'perimeter' to define abstract method 'perimeter'
+    def perimeter(self) -> float:
+        return 2 * (self.width + self.height)
+
+# Creating an instance of the class 'Rectangle'
+rectangle = Rectangle(5, 10)
+
+# Printing the results
+print(f"Rectangle Area: {rectangle.area()}")
+print(f"Rectangle Perimeter: {rectangle.perimeter()}")
