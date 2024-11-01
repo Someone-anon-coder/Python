@@ -1,0 +1,71 @@
+# Creating a class 'Vector'
+class Vector:
+
+    # Creating a constructor with two parameters
+    def __init__(self, x: int, y: int):
+        self.x = x
+        self.y = y
+    
+    # Creating a magic method to add two vectors
+    def __add__(self, other: object):
+        print("Adding two vectors...")
+        return Vector(self.x + other.x, self.y + other.y)
+    
+    # Creating a magic method to subtract two vectors
+    def __sub__(self, other: object):
+        print("Subtracting two vectors...")
+        return Vector(self.x - other.x, self.y - other.y)
+    
+    # Creating a magic method to print the vector
+    def __str__(self):
+        return f"({self.x}, {self.y})"
+
+# Creating instances of the Vector class
+v1 = Vector(1, 2)
+v2 = Vector(3, 4)
+
+# Printing the vectors and their addition and subtraction
+print(f"Vector 1: {v1}, Vector 2: {v2}")
+print(v1 + v2)
+print(v1 - v2)
+
+
+# Creating a class 'Multiplier'
+class Multiplier:
+    
+    # Creating a constructor with one parameter
+    def __init__(self, factor: float):
+        self.factor = factor
+    
+    # Creating a magic method to call the object
+    def __call__(self, value: float):
+        print("Object called, returning result...")
+        return self.factor * value
+
+# Creating an instance of the Multiplier class and calling it with a value
+mul = Multiplier(2)
+print(mul(5))
+
+
+# Creating a class 'FileManager'
+class FileManager:
+    
+    # Creating a constructor with two parameters
+    def __init__(self, filename: str, mode: str):
+        self.filename = filename
+        self.mode = mode
+
+    # Creating magic methods to enter the context manager
+    def __enter__(self):
+        print("Opening file...")
+        self.file = open(self.filename, self.mode)
+        return self.file
+
+    # Creating magic methods to exit the context manager
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        print("Closing file...")
+        self.file.close()
+
+# Using the context manager to open, write and close a file
+with FileManager("Files/Magic_file.txt", "w") as file:
+    file.write("Hello, World!")

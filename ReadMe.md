@@ -43,7 +43,7 @@ Below is the list of topics that I plan to cover, categorized from beginner to a
   - [✅] Understanding Exceptions
   - [✅] `try`, `except`, `else`, and `finally` blocks
   - [✅] Custom Exception Handling
-- [🟡] **8. Object-Oriented Programming (OOP)**
+- [✅] **8. Object-Oriented Programming (OOP)**
   - [✅] Classes and Objects
   - [✅] Constructors and Destructors
   - [✅] Inheritance
@@ -51,9 +51,9 @@ Below is the list of topics that I plan to cover, categorized from beginner to a
   - [✅] Encapsulation
   - [✅] Abstraction
   - [✅] Magic/Dunder Methods 1
-  - [🟡] Magic/Dunder Methods 2
-- [ ] **9. Working with Libraries and Packages**
-  - [ ] NumPy
+  - [✅] Magic/Dunder Methods 2
+- [🟡] **9. Working with Libraries and Packages**
+  - [🟡] NumPy
   - [ ] Pandas
   - [ ] Matplotlib
 - [ ] **10. Advanced Topics**
