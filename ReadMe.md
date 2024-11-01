@@ -50,7 +50,8 @@ Below is the list of topics that I plan to cover, categorized from beginner to a
   - [✅] Polymorphism
   - [✅] Encapsulation
   - [✅] Abstraction
-  - [🟡] Magic/Dunder Methods
+  - [✅] Magic/Dunder Methods 1
+  - [🟡] Magic/Dunder Methods 2
 - [ ] **9. Working with Libraries and Packages**
   - [ ] NumPy
   - [ ] Pandas
