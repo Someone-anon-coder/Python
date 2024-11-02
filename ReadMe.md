@@ -52,13 +52,13 @@ Below is the list of topics that I plan to cover, categorized from beginner to a
   - [✅] Abstraction
   - [✅] Magic/Dunder Methods 1
   - [✅] Magic/Dunder Methods 2
-- [🟡] **9. Modules and Packages**
+- [✅] **9. Modules and Packages**
   - [✅] Importing Modules
   - [✅] Creating and Using Packages
-  - [🟡] Built-in Modules (math, datetime, etc.)
-  - [🟡] Third-party Packages (Installing with pip)
-- [ ] **10. Working with Libraries and Packages**
-  - [ ] NumPy
+  - [✅] Built-in Modules (math, datetime, etc.)
+  - [✅] Third-party Packages (Installing with pip)
+- [🟡] **10. Working with Libraries and Packages**
+  - [🟡] NumPy
   - [ ] Pandas
   - [ ] Matplotlib
 - [ ] **11. Advanced Topics**
