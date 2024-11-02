@@ -52,31 +52,36 @@ Below is the list of topics that I plan to cover, categorized from beginner to a
   - [✅] Abstraction
   - [✅] Magic/Dunder Methods 1
   - [✅] Magic/Dunder Methods 2
-- [🟡] **9. Working with Libraries and Packages**
-  - [🟡] NumPy
+- [🟡] **9. Modules and Packages**
+  - [✅] Importing Modules
+  - [✅] Creating and Using Packages
+  - [🟡] Built-in Modules (math, datetime, etc.)
+  - [🟡] Third-party Packages (Installing with pip)
+- [ ] **10. Working with Libraries and Packages**
+  - [ ] NumPy
   - [ ] Pandas
   - [ ] Matplotlib
-- [ ] **10. Advanced Topics**
+- [ ] **11. Advanced Topics**
   - [ ] Generators
   - [ ] Decorators
   - [ ] Context Managers
-- [ ] **11. Web Scraping**
+- [ ] **12. Web Scraping**
   - [ ] Using Requests and BeautifulSoup
   - [ ] Using Selenium for Web Automation
-- [ ] **12. Working with APIs**
+- [ ] **13. Working with APIs**
   - [ ] REST APIs with Requests
   - [ ] JSON Data Handling
-- [ ] **13. Data Analysis and Visualization**
+- [ ] **14. Data Analysis and Visualization**
   - [ ] Data Cleaning with Pandas
   - [ ] Visualization with Matplotlib and Seaborn
-- [ ] **14. Testing and Debugging**
+- [ ] **15. Testing and Debugging**
   - [ ] Writing Unit Tests with `unittest`
   - [ ] Debugging Techniques
   - [ ] Using Debugger Tools
-- [ ] **15. Version Control**
+- [ ] **16. Version Control**
   - [ ] Working with Git
   - [ ] Using GitHub for Collaboration
-- [ ] **16. Deployment**
+- [ ] **17. Deployment**
   - [ ] Packaging Python Applications
   - [ ] Virtual Environments
   - [ ] Deploying to the Cloud (e.g., AWS, Heroku)

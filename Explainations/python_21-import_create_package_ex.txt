@@ -1,0 +1,39 @@
+# Importing everything from a built in module
+import math
+
+# Creating a int variable
+num = 4
+
+# Printing values of num with math methods
+print(f"Square root of {num} is: {math.sqrt(num)}")
+print(f"Factorial of {num} is: {math.factorial(num)}")
+
+
+# Importing only pi and sqrt from math module
+from math import pi, sqrt
+
+# Creating a int variable
+num = 16
+
+# Printing values of num with math methods and value of pi
+print(f"Value of pi is: {pi}")
+print(f"Square root of {num} is: {sqrt(num)}")
+
+
+# Importing add and sub methods from created module calculator from Packages
+from Packages.calculator import add, sub
+
+# Creating a list of numbers
+nums = [1, 2, 3, 4, 5]
+
+# Printing values of nums with add and sub methods
+print(f"Internal Addition of {nums} is: {add(*nums)}")
+print(f"Internal Subtraction of {nums} is: {sub(*nums)}")
+
+
+# Importing greet method from created module greet from Packages using __init__ file
+from Packages import greet
+
+# Greeting name of the user and calling greet method on it
+name = input("Enter your name: ")
+greet(name)
