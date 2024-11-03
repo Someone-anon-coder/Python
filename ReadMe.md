@@ -57,31 +57,36 @@ Below is the list of topics that I plan to cover, categorized from beginner to a
   - [✅] Creating and Using Packages
   - [✅] Built-in Modules (math, datetime, etc.)
   - [✅] Third-party Packages (Installing with pip)
-- [🟡] **10. Working with Libraries and Packages**
-  - [🟡] NumPy
+- [🟡] **10. Advanced Data Structures**
+  - [🟡] Stacks
+  - [🟡] Queues
+  - [ ] Linked Lists
+  - [ ] Trees and Graphs
+- [ ] **11. Working with Libraries and Packages**
+  - [ ] NumPy
   - [ ] Pandas
   - [ ] Matplotlib
-- [ ] **11. Advanced Topics**
+- [ ] **12. Advanced Topics**
   - [ ] Generators
   - [ ] Decorators
   - [ ] Context Managers
-- [ ] **12. Web Scraping**
+- [ ] **13. Web Scraping**
   - [ ] Using Requests and BeautifulSoup
   - [ ] Using Selenium for Web Automation
-- [ ] **13. Working with APIs**
+- [ ] **14. Working with APIs**
   - [ ] REST APIs with Requests
   - [ ] JSON Data Handling
-- [ ] **14. Data Analysis and Visualization**
+- [ ] **15. Data Analysis and Visualization**
   - [ ] Data Cleaning with Pandas
   - [ ] Visualization with Matplotlib and Seaborn
-- [ ] **15. Testing and Debugging**
+- [ ] **16. Testing and Debugging**
   - [ ] Writing Unit Tests with `unittest`
   - [ ] Debugging Techniques
   - [ ] Using Debugger Tools
-- [ ] **16. Version Control**
+- [ ] **17. Version Control**
   - [ ] Working with Git
   - [ ] Using GitHub for Collaboration
-- [ ] **17. Deployment**
+- [ ] **18. Deployment**
   - [ ] Packaging Python Applications
   - [ ] Virtual Environments
   - [ ] Deploying to the Cloud (e.g., AWS, Heroku)
