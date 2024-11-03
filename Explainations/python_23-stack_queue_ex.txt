@@ -1,0 +1,37 @@
+# Creating a empty list for stack implementation
+stack = []
+
+# Adding elements to the stack
+stack.append(10)
+stack.append(20)
+stack.append(30)
+
+# Printing the stack
+print(f"Stack: {stack}")
+
+# Removing top element from the stack
+print(f"Removing the top most element: {stack.pop()}")
+
+# Getting the top element from the stack
+print(f"Peeking at the top element: {stack[-1]}")
+
+
+# Importing deque from collections
+from collections import deque
+
+# Creating a deque for efficient queue operations
+queue = deque()
+
+# Adding elements to the queue
+queue.append(1)
+queue.append(2)
+queue.append(3)
+
+# Printing the queue
+print(f"Queue: {queue}")
+
+# Removing the first element from the queue
+print(f"Removing the first element: {queue.popleft()}")
+
+# Getting the first element from the queue
+print(f"Peeking at the first element: {queue[0]}")
