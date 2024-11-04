@@ -1,0 +1,87 @@
+# Creating a class for a node
+class Node:
+
+    # Creating a constructor to initialize the node data, left and right children
+    def __init__(self, data: any) -> None:
+        self.data = data
+        
+        self.left = None
+        self.right = None
+
+# Creating a binary tree class
+class BinaryTree:
+
+    # Creating a constructor to initialize the root node
+    def __init__(self) -> None:
+        self.root = None
+    
+    # Creating a method to insert a new node in the binary tree
+    def insert(self, data: any) -> None:
+
+        # Checking if the root node is empty or not
+        if not self.root:
+            self.root = Node(data)
+            return
+        else:
+            self._insert_recursive(data, self.root)
+    
+    # Creating a recursive method to insert a new node in the binary tree
+    def _insert_recursive(self, data: any, current_node: Node) -> None:
+    
+        # Checking if the data is less than or greater than the current node data
+        if data < current_node.data:
+            if current_node.left is None:
+                current_node.left = Node(data)
+            else:
+                self._insert_recursive(data, current_node.left)
+        
+        else:
+            if current_node.right is None:
+                current_node.right = Node(data)
+            else:
+                self._insert_recursive(data, current_node.right)
+    
+    # Creating a method to traverse the binary tree with in-order traversal
+    def in_order_traversal(self, node: Node) -> None:
+        if node:
+            self.in_order_traversal(node.left)
+            print(node.data, end=" ")
+            self.in_order_traversal(node.right)
+    
+    # Creating a method to traverse the binary tree with pre-order traversal
+    def pre_order_traversal(self, node: Node) -> None:
+        if node:
+            print(node.data, end=" ")
+            self.pre_order_traversal(node.left)
+            self.pre_order_traversal(node.right)
+    
+    # Creating a method to traverse the binary tree with post-order traversal
+    def post_order_traversal(self, node: Node) -> None:
+        if node:
+            self.post_order_traversal(node.left)
+            self.post_order_traversal(node.right)
+            print(node.data, end=" ")
+
+# Creating a binary tree object
+binaryTree = BinaryTree()
+
+# Inserting nodes in the binary tree
+binaryTree.insert(5)
+binaryTree.insert(3)
+binaryTree.insert(2)
+binaryTree.insert(15)
+binaryTree.insert(10)
+binaryTree.insert(12)
+binaryTree.insert(18)
+
+# Traversing the binary tree with in-order traversal
+print("In Order Traversal:", end=" ")
+binaryTree.in_order_traversal(binaryTree.root)
+
+# Traversing the binary tree with pre-order traversal
+print("\nPre Order Traversal:", end=" ")
+binaryTree.pre_order_traversal(binaryTree.root)
+
+# Traversing the binary tree with post-order traversal
+print("\nPost Order Traversal:", end=" ")
+binaryTree.post_order_traversal(binaryTree.root)

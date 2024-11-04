@@ -61,7 +61,8 @@ Below is the list of topics that I plan to cover, categorized from beginner to a
   - [✅] Stacks
   - [✅] Queues
   - [✅] Linked Lists
-  - [🟡] Trees and Graphs
+  - [✅] Trees
+  - [🟡] Graphs
 - [ ] **11. Working with Libraries and Packages**
   - [ ] NumPy
   - [ ] Pandas
