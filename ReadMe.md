@@ -60,7 +60,7 @@ Below is the list of topics that I plan to cover, categorized from beginner to a
 - [🟡] **10. Advanced Data Structures**
   - [✅] Stacks
   - [✅] Queues
-  - [🟡] Linked Lists
+  - [✅] Linked Lists
   - [🟡] Trees and Graphs
 - [ ] **11. Working with Libraries and Packages**
   - [ ] NumPy
