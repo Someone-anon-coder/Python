@@ -57,14 +57,14 @@ Below is the list of topics that I plan to cover, categorized from beginner to a
   - [✅] Creating and Using Packages
   - [✅] Built-in Modules (math, datetime, etc.)
   - [✅] Third-party Packages (Installing with pip)
-- [🟡] **10. Advanced Data Structures**
+- [✅] **10. Advanced Data Structures**
   - [✅] Stacks
   - [✅] Queues
   - [✅] Linked Lists
   - [✅] Trees
-  - [🟡] Graphs
-- [ ] **11. Working with Libraries and Packages**
-  - [ ] NumPy
+  - [✅] Graphs
+- [🟡] **11. Working with Libraries and Packages**
+  - [🟡] NumPy
   - [ ] Pandas
   - [ ] Matplotlib
 - [ ] **12. Advanced Topics**

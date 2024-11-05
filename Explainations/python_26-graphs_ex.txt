@@ -1,0 +1,83 @@
+# Creating a class for Graph
+class Graph:
+
+    # Creating a construtor to initialize the graph
+    def __init__(self):
+        self.adj_list = {}
+    
+    # Creating a method to add a vertex to the graph
+    def add_vertex(self, vertex: any):
+        if vertex not in self.adj_list:
+            self.adj_list[vertex] = []
+    
+    # Creating a method to add an edge to the vertex
+    def add_edge(self, vertex1: any, vertex2: any):
+        if vertex1 in self.adj_list and vertex2 in self.adj_list:
+            self.adj_list[vertex1].append(vertex2)
+    
+    # Creating a method to display the graph
+    def display(self):
+        for vertex, edges in self.adj_list.items():
+            print(f"{vertex} -> {', '.join(map(str, edges))}")
+    
+    # Creating a method to perform BFS traversal
+    def bfs(self, start_vertex: any):
+        visited = set()
+        queue = [start_vertex]
+        
+        while queue:
+            vertex = queue.pop(0)
+
+            # Checking if the vertex is already visited
+            if vertex not in visited:
+                print(vertex, end=" ")
+                visited.add(vertex)
+                
+                # Adding unvisited neighbors to the queue
+                queue.extend(neighbor for neighbor in self.adj_list[vertex] if neighbor not in visited)
+    
+    # Creating a method to perform DFS traversal
+    def dfs(self, start_vertex: any):
+        visited = set()
+        
+        # Calling the recursive function to perform DFS
+        self._dfs_recursive(start_vertex, visited)
+
+    # Creating a recursive function to perform DFS traversal
+    def _dfs_recursive(self, start_vertex: any, visited: set):
+        if start_vertex not in visited:
+            print(start_vertex, end=" ")
+            
+            # Adding unvisited neighbors to the stack
+            visited.add(start_vertex)
+            for neighbor in self.adj_list[start_vertex]:
+                self._dfs_recursive(neighbor, visited)
+
+# Creating a graph object
+graph = Graph()
+
+# Adding vertices to the graph
+graph.add_vertex("A")
+graph.add_vertex("B")
+graph.add_vertex("C")
+graph.add_vertex("D")
+graph.add_vertex("E")
+
+# Adding edges to the vertices
+graph.add_edge("A", "B")
+graph.add_edge("A", "C")
+graph.add_edge("B", "D")
+graph.add_edge("C", "E")
+graph.add_edge("D", "E")
+
+# Displaying the graph
+print("Graph Adjacency List:")
+graph.display()
+
+# Displaying the graph with BFS traversal
+print("\nBFS Traversal:")
+graph.bfs("A")
+
+# Displaying the graph with DFS traversal
+print("\nDFS Traversal:")
+graph.dfs("A")
