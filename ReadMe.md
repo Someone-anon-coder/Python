@@ -64,8 +64,8 @@ Below is the list of topics that I plan to cover, categorized from beginner to a
   - [✅] Trees
   - [✅] Graphs
 - [🟡] **11. Working with Libraries and Packages**
-  - [🟡] NumPy
-  - [ ] Pandas
+  - [✅] NumPy
+  - [🟡] Pandas
   - [ ] Matplotlib
 - [ ] **12. Advanced Topics**
   - [ ] Generators

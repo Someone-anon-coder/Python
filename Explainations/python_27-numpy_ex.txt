@@ -1,0 +1,70 @@
+# !pip install numpy # Run this command in the terminal to install numpy
+
+# Importing numpy library
+import numpy
+
+# Creating a 1D array and printing it
+arr = numpy.array([1, 2, 3, 4, 5])
+print(f"1D Array: {arr}")
+
+
+# Creating a 2D array and printing it
+matrix = numpy.array([[1, 2, 3], [4, 5, 6]])
+print(f"2D Array:\n{matrix}")
+
+
+# Creating a 3x3 array of zeros and printing it
+zeros = numpy.zeros((3, 3))
+print(f"Zeros Array:\n{zeros}")
+
+
+# Creating a 2x4 array of ones and printing it
+ones = numpy.ones((2, 4))
+print(f"Ones Array:\n{ones}")
+
+
+# Creating a 1D array
+arr = numpy.array([10, 20, 30, 40, 50])
+
+# Accessing elements of the array
+print(f"First Element: {arr[0]}")
+print(f"Last Element: {arr[-1]}")
+print(f"Array Slice: {arr[1:4]}")
+
+
+# Creating 2 1D arrays
+a = numpy.array([1, 2, 3])
+b = numpy.array([4, 5, 6])
+
+# Performing arithmetic operations on numpy arrays
+print(f"Addition: {a + b}")
+print(f"Subtraction: {a - b}")
+print(f"Multiplication: {a * b}")
+
+
+# Creating a 1D array
+arr = numpy.array([1, 4, 9, 16, 25, 36])
+
+# Performing mathematical operations on the array
+print(f"Square Root: {numpy.sqrt(arr)}")
+print(f"Exponential: {numpy.exp(arr)}")
+print(f"Sum: {numpy.sum(arr)}")
+print(f"Mean: {numpy.mean(arr)}")
+
+# Reshaping the array and printing it
+print(f"Reshaped Array:\n{arr.reshape(2, 3)}")
+
+
+# Creating a 3x3 array of random numbers between 0 and 1
+print(f"Random Array:\n{numpy.random.rand(3, 3)}")
+
+# Creating a 3x3 array of random integers between 1 and 10
+print(f"Random Integer Array:\n{numpy.random.randint(1, 10, size=(3, 3))}")
+
+
+# Creating a 2 2D arrays
+A = numpy.array([[1, 2], [3, 4]])
+B = numpy.array([[5, 6], [7, 8]])
+
+# Performing matrix operations on the arrays
+print(f"Matrix Multiplication:\n{numpy.matmul(A, B)}")
