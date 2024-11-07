@@ -1,0 +1,68 @@
+# !pip install pandas # Type in terminal to install pandas
+
+# Importing pandas library
+import pandas
+
+# Creating a list of data
+data = [10, 20, 30, 40, 50]
+
+# Creating a Series from the list of data and printing it
+series = pandas.Series(data, index=["a", "b", "c", "d", "e"])
+print(f"Series:\n{series}")
+
+
+# Reading a CSV file and creating a DataFrame and printing it
+df = pandas.read_csv("Files/read_example.csv")
+print(f"DataFrame from CSV:\n{df}")
+
+
+# Writing a DataFrame to a CSV file
+df.to_csv("Files/write_example.csv", index=False)
+
+
+# Printing various information about the DataFrame
+print(f"Head Of DataFrame:\n{df.head()}")
+print(f"Tail Of DataFrame:\n{df.tail()}")
+print(f"Info Of DataFrame:\n{df.info()}")
+print(f"Statistical Summary Of DataFrame:\n{df.describe()}")
+
+
+# Creating a Dictionary of data
+data = {
+    "Name": ["Alice", "Bob", "Charlie"],
+    "Age": [25, 30, 35],
+    "City": ["New York", "Los Angeles", "Chicago"]
+}
+
+# Creating a DataFrame from the Dictionary
+df = pandas.DataFrame(data)
+
+# Printing information about the DataFrame
+print(f"DataFrame:\n {pandas.DataFrame(data)}")
+print(f"Ages Column:\n {df['Age']}")
+print(f"Subset Of Column:\n {df[['Name', 'City']]}")
+print(f"Row with Index 1:\n {df.loc[1]}")
+print(f"Filtered Age (Age > 30):\n {df[df["Age"] > 30]}")
+
+
+# Adding a new column to the DataFrame and printing the updated DataFrame
+df["Salary"] = [50000, 60000, 70000]
+print(f"DataFrame with Salary Column:\n {df}")
+
+
+# Dropping a column from the DataFrame and printing the updated DataFrame
+df = df.drop("Salary", axis=1)
+print(f"DataFrame without Salary Column:\n {df}")
+
+
+# Printing the sum of all null values in each column of the DataFrame
+print(f"Missing Values:\n {df.isnull().sum()}")
+
+
+# Filling missing values in the DataFrame with 0 and printing the updated DataFrame
+df_filled = df.fillna(0)
+print(f"DataFrame with Filled Missing Values:\n {df_filled}")
+
+# Dropping rows with missing values and printing the updated DataFrame
+df_dropped = df.dropna()
+print(f"DataFrame with Dropped Missing Values:\n {df_dropped}")
