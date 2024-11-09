@@ -1,0 +1,88 @@
+# !pip install matplotlib # Type command in terminal to install matplotlib
+
+# Importing pyplot from matplotlib as plt
+import matplotlib.pyplot as plt
+
+# Creating a list of data points
+x = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+# Creating a list of data points as squares of x
+y = [x**2 for x in x]
+
+# Plotting the data points
+plt.plot(x, y)
+
+# Setting title, x-axis label, and y-axis label
+plt.title("Simple Line Plot")
+plt.xlabel("X-axis")
+plt.ylabel("Y-axis")
+
+# Displaying the plot
+plt.show()
+
+
+# Creating a list of categories
+categories = ['A', 'B', 'C', 'D']
+
+# Creating a list of values corresponding to the categories
+values = [5, 7, 3, 8]
+
+# Plotting the bar chart
+plt.bar(categories, values)
+
+# Setting title, x-axis label, and y-axis label
+plt.title("Simple Bar Chart")
+plt.xlabel("Categories")
+plt.ylabel("Values")
+
+# Displaying the plot
+plt.show()
+
+
+# Importing numpy as np
+import numpy as np
+
+# Generating random data points from a normal distribution
+data = np.random.randn(1000)
+
+# Creating a histogram of the data with 30 bins
+plt.hist(data, bins=30)
+
+# Setting title, x-axis label, and y-axis label
+plt.title("Simple Histogram")
+plt.xlabel("Value")
+plt.ylabel("Frequency")
+
+# Displaying the plot
+plt.show()
+
+
+# Generating random data points for x and y axes
+x = np.random.rand(50)
+y = np.random.rand(50)
+
+# Creating a scatter plot
+plt.scatter(x, y)
+
+# Setting title, x-axis label, and y-axis label
+plt.title("Simple Scatter Plot")
+plt.xlabel("X-axis")
+plt.ylabel("Y-axis")
+
+# Displaying the plot
+plt.show()
+
+
+# Creating a list of labels and their corresponding sizes for the pie chart
+labels = ['Apples', 'Banana', 'Cherry', 'Date']
+sizes = [15, 30, 45, 10]
+
+# Creating a pie chart with format and startangle
+plt.pie(sizes, labels=labels, autopct='%1.1f%%', startangle=90)
+
+# Setting title and aspect ratio
+plt.axis('equal')
+plt.title("Simple Pie Chart")
+
+# Displaying the plot
+plt.show()

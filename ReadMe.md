@@ -63,12 +63,12 @@ Below is the list of topics that I plan to cover, categorized from beginner to a
   - [✅] Linked Lists
   - [✅] Trees
   - [✅] Graphs
-- [🟡] **11. Working with Libraries and Packages**
+- [✅] **11. Working with Libraries and Packages**
   - [✅] NumPy
   - [✅] Pandas
-  - [🟡] Matplotlib
-- [ ] **12. Advanced Topics**
-  - [ ] Generators
+  - [✅] Matplotlib
+- [🟡] **12. Advanced Topics**
+  - [🟡] Generators
   - [ ] Decorators
   - [ ] Context Managers
 - [ ] **13. Web Scraping**
