@@ -68,8 +68,8 @@ Below is the list of topics that I plan to cover, categorized from beginner to a
   - [✅] Pandas
   - [✅] Matplotlib
 - [🟡] **12. Advanced Topics**
-  - [🟡] Generators
-  - [ ] Decorators
+  - [✅] Generators
+  - [🟡] Decorators
   - [ ] Context Managers
 - [ ] **13. Web Scraping**
   - [ ] Using Requests and BeautifulSoup
