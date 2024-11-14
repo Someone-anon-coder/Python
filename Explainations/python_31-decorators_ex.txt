@@ -1,0 +1,147 @@
+# Creating a decorator function
+def my_decorator(func):
+
+    # defining the wrapper function
+    def wrapper():
+
+        # Printing the statement before the function execution
+        print("Something is happening before function call")
+        
+        # Calling the function
+        func()
+
+        # Printing the statement after the function execution
+        print("Something is happening after function call")
+    
+    # Returning the wrapper function
+    return wrapper
+
+# Creating a function to be decorated with the decorator
+@my_decorator
+def say_hello():
+    print("Hello")
+
+# Calling the decorated function
+say_hello()
+
+
+# Creating a decorator function
+def my_decorator(func):
+
+    # Defining the wrapper function with arguments
+    def wrapper(*args, **kwargs):
+        print("Before function call")
+        
+        # Calling the function with arguments and storing the result
+        result = func(*args, **kwargs)
+        print("After function call")
+        
+        # Returning the result
+        return result
+    
+    # Returning the wrapper function
+    return wrapper
+
+# Creating a function to be decorated with the decorator
+@my_decorator
+def add(a, b):
+    print(f"Addition of {a} and {b} is {a + b}")
+
+# Calling the decorated function with arguments
+add(1, 2)
+
+
+# Creating first decorator function
+def decorator1(func):
+
+    # Defining the wrapper function
+    def wrapper():
+
+        # Defining how to decorate the function
+        print("-"*10, ">>")
+        func()
+        print("-"*10, "<<")
+    
+    # Returning the wrapper function
+    return wrapper
+
+# Creating second decorator function
+def decorator2(func):
+
+    # Defining the wrapper function
+    def wrapper():
+        
+        # Defining how to decorate the function
+        print("*"*5)
+        func()
+        print("*"*5)
+    
+    # Returning the wrapper function
+    return wrapper
+
+# Creating a function to be decorated with the decorators
+@decorator1
+@decorator2
+def say_hello():
+    print("Hello, World!")
+
+# Calling the decorated function
+say_hello()
+
+
+# Importing the wraps decorator from the functools module
+from functools import wraps
+
+# Creating a decorator function
+def my_decorator(func):
+
+    # Defining the wrapper function with the wraps decorator
+    @wraps(func)
+    def wrapper(*args, **kwargs):
+        print("Before Function Call")
+
+        # Calling the function with arguments and storing the result
+        result = func(*args, **kwargs)
+        print("After Function Call")
+
+        # Returning the result
+        return result
+
+    # Returning the wrapper function
+    return wrapper
+
+# Creating a function to be decorated with the decorator
+def greet(name: str):
+    print(f"Hello {name}")
+
+# Calling the decorated function special keywords
+print(greet.__name__)
+print(greet.__doc__)
+
+
+# Creating a decorator function
+def logging(func):
+    
+    # Defining the wrapper function with arguments
+    def my_wrapper(*args, **kwargs):
+
+        # Printing the function name and arguments
+        print(f"Calling function {func.__name__} with arguments {args} and keyword arguments {kwargs}")
+        
+        # Calling the function with arguments and storing the result
+        result = func(*args, **kwargs)
+        print(f"Function {func.__name__} returned {result}")
+        
+        # Returning the result
+        return result
+    
+    # Returning the wrapper function
+    return my_wrapper
+
+# Creating a function to be decorated with the decorator
+@logging
+def add(a, b):
+    return a + b
+
+# Calling the decorated function with arguments
+add(1, 2)
