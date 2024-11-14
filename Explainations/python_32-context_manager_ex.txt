@@ -1,0 +1,93 @@
+# Opening a file in read mode with 'with' statement and printing its contents
+with open("Files/read_example.txt", 'r', encoding='utf8') as file:
+    print(file.read())
+
+# Opening a file without a context manager
+file = open("Files/read_example.txt", 'r', encoding='utf8')
+
+# Reading the file and printing its contents
+print(file.read())
+
+# Closing the file
+file.close()
+
+
+# Creating a context manager class
+class MyContextManager:
+    """Class to demonstrate the use of context managers"""
+    
+    # Creating a method to enter the context
+    def __enter__(self) -> None:
+        """Enter the context"""
+        
+        print("Entering the context")
+    
+    # Creating a method to exit the context
+    def __exit__(self, exc_type: object, exc_val: object, exc_tb: object) -> None:
+        """Exit the context"""
+        
+        print("Exiting the context")
+
+# Using the context manager in a with statement
+with MyContextManager() as manager:
+    print("Inside the context")
+
+
+# Importing the contextmanager decorator from the contextlib module
+from contextlib import contextmanager
+
+# Creating a context manager function using the contextmanager decorator
+@contextmanager
+def my_context():
+    """Function to demonstrate the use of context managers"""
+    
+    print("Entering the context")
+    yield
+    print("Exiting the context")
+
+# Using the context manager in a with statement
+with my_context():
+    print("Inside the context")
+
+
+# Creating a context manager class to open and close a file
+class FileManager:
+    def __init__(self, filename: str, mode: str):
+        self.filename = filename
+        self.mode = mode
+
+    # Creating a method to enter the context and open the file
+    def __enter__(self):
+        self.file = open(self.filename, self.mode)
+        print("File opened")
+        return self.file
+
+    # Creating a method to exit the context and close the file
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        self.file.close()
+        print("File closed")
+
+# Using the context manager to open and close a file and print its contents
+with FileManager("Files/read_example.txt", "r") as file:
+    print(file.read())
+
+
+# Importing the time module
+import time
+
+# Creating a context manager class to measure the execution time of a function
+class Timer:
+
+    # Creating a method to enter the context and start the timer
+    def __enter__(self):
+        self.start_time = time.time()
+        return self
+
+    # Creating a method to exit the context and print the elapsed time
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        self.end_time = time.time()
+        print(f"Elapsed time: {self.end_time - self.start_time} seconds")
+
+# Using the context manager to measure the execution time of a function
+with Timer():
+    time.sleep(2)

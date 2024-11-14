@@ -70,7 +70,8 @@ Below is the list of topics that I plan to cover, categorized from beginner to a
 - [🟡] **12. Advanced Topics**
   - [✅] Generators
   - [✅] Decorators
-  - [🟡] Context Managers
+  - [✅] Context Managers
+  - [🟡] Multithreading and Multiprocessing
 - [ ] **13. Web Scraping**
   - [ ] Using Requests and BeautifulSoup
   - [ ] Using Selenium for Web Automation
