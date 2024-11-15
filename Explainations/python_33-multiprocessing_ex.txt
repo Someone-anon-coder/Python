@@ -1,0 +1,112 @@
+# Importing the multiprocessing module
+import multiprocessing
+
+# Importing the time module
+import time
+
+# Defining a worker function
+def worker(num: int) -> None:
+    print(f"Worker {num} started")
+    
+    # Simulating some work
+    time.sleep(2)
+
+    print(f"After 2 seconds, Worker {num} finished")
+
+# Creating a list to hold the processes
+processes = []
+
+# Creating and starting 4 processes
+for i in range(4):
+    process = multiprocessing.Process(target=worker, args=(i,))
+    
+    # Appending the process to the list
+    processes.append(process)
+    process.start()
+
+# Joining the processes to wait for them to finish
+for process in processes:
+    process.join()
+
+# Printing a message after all processes finish
+print("All processes finished")
+
+
+# Defining a worker function with a queue
+def worker(queue: multiprocessing.Queue, num: int) -> None:
+
+    # Calculating the square of the number and putting it in the queue
+    result = num * num
+    queue.put(result)
+
+# Creating a queue to share data between processes
+queue = multiprocessing.Queue()
+
+# Creating a list to hold the processes
+processes = []
+
+# Creating and starting 4 processes
+for i in range(4):
+    process = multiprocessing.Process(target=worker, args=(queue, i))
+    
+    # Appending the process to the list
+    processes.append(process)
+    process.start()
+
+# Joining the processes to wait for them to finish
+for process in processes:
+    process.join()
+
+# Getting and printing the results from the queue
+while not queue.empty():
+    print("Result:", queue.get())
+
+print("All processes finished")
+
+
+# Defining a worker function to calculate the square of a number
+def square(num: int) -> int:
+    return num * num
+
+# Creating a pool of 4 processes
+with multiprocessing.Pool(processes=4) as pool:
+    
+    # Using the pool to map the square function to a list of numbers
+    results = pool.map(square, [1, 2, 3, 4, 5])
+
+# Printing the results
+print("Sqaures:", results)
+
+
+# Defining a worker function with a lock and shared data
+def worker(lock: multiprocessing, shared_data: dict) -> None:
+    with lock:
+
+        # Simulating some work
+        for _ in range(5):
+
+            # Updating the counter
+            shared_data['counter'] += 1
+            print(f"Counter Value: {shared_data['counter']}")
+            time.sleep(0.1)
+
+# Creating a manager to share data between processes
+manager = multiprocessing.Manager()
+shared_data = manager.dict({'counter': 0})
+
+# Creating a lock to synchronize access to shared data
+lock = multiprocessing.Lock()
+processes = []
+
+# Creating and starting 3 processes
+for _ in range(3):
+    process = multiprocessing.Process(target=worker, args=(lock, shared_data))
+    processes.append(process)
+    process.start()
+
+# Joining the processes to wait for them to finish
+for process in processes:
+    process.join()
+
+# Printing the final counter value
+print(f"Final Counter Value: {shared_data['counter']}")

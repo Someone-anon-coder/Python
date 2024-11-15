@@ -71,7 +71,8 @@ Below is the list of topics that I plan to cover, categorized from beginner to a
   - [✅] Generators
   - [✅] Decorators
   - [✅] Context Managers
-  - [🟡] Multithreading and Multiprocessing
+  - [✅] Multiprocessing
+  - [🟡] Multithreading
 - [ ] **13. Web Scraping**
   - [ ] Using Requests and BeautifulSoup
   - [ ] Using Selenium for Web Automation
