@@ -1,0 +1,112 @@
+# !pip install requests # Type in terminal to install requests library
+
+# Importing the requests library
+import requests
+
+# Making a GET request to the specified URL
+url = "https://jsonplaceholder.typicode.com/posts"
+response = requests.get(url)
+
+# Checking the response status code and printing the response content
+print(f"Response Status Code: {response.status_code}")
+print(f"Response Content: {response.json()}")
+
+
+# Making a POST request to the specified URL with JSON data
+url = "https://jsonplaceholder.typicode.com/posts"
+data = {
+    "title": "foo",
+    "body": "bar",
+    "userId": 1
+}
+
+response = requests.post(url, json=data)
+
+# Checking the response status code and printing the response content
+print(f"Response Status Code: {response.status_code}")
+print(f"Response Content: {response.json()}")
+
+
+# Making a GET request to the specified URL with query parameters
+url = "https://jsonplaceholder.typicode.com/posts"
+params = {
+    "userId": 1
+}
+
+response = requests.get(url, params=params)
+
+# Checking the response status code and printing the response content
+print(f"Response Status Code: {response.status_code}")
+print(f"Response Content: {response.json()}")
+
+
+# Making a POST request to the specified URL with form data
+url = "https://httpbin.org/post"
+form_data = {
+    "name": "Someone",
+    "age": 100
+}
+
+response = requests.post(url, data=form_data)
+
+# Checking the response status code and printing the response content
+print(f"Response Status Code: {response.status_code}")
+print(f"Response Content: {response.json()}")
+
+
+# Making a GET request to the specified URL
+url = "https://jsonplaceholder.typicode.com/posts/1"
+response = requests.get(url)
+
+# Checking the response status code and printing the response content
+if response.status_code == 200:
+    print(f"Success! Response Status Code: {response.status_code}")
+    print(f"Response Content: {response.json()}")
+
+# If the response status code is not 200, print an error message
+else:
+    print(f"Error! Response Status Code: {response.status_code}")
+
+
+# Making a GET request to the specified URL
+url = "https://jsonplaceholder.typicode.com/posts/1"
+response = requests.get(url)
+
+# Checking the response status code and printing the required information
+if response.status_code == 200:
+    data = response.json()
+    print(f"Title: {data['title']}")
+    print(f"Body: {data['body']}")
+
+
+# Making a GET request to the specified URL
+url = "https://jsonplaceholder.typicode.com/posts"
+
+# Trying to make a GET request to the specified URL with a timeout of 5 seconds
+try:
+    response = requests.get(url, timeout=5)
+    print(f"Response Status Code: {response.status_code}")
+
+# If the request times out, print an error message
+except requests.exceptions.Timeout:
+    print("Request timed out")
+
+
+# Making a POST request to the specified URL with a file
+url = "https://httpbin.org/post"
+file = {'file': open('Files/read_example.txt', 'rb')}
+
+response = requests.post(url, files=file)
+
+# Checking the response status code and printing the response content
+print(f"Response Status Code: {response.status_code}")
+print(f"Response Content: {response.json()}")
+
+
+# Making a GET request to the specified URL with cookies
+url = "https://httpbin.org/cookies"
+response = requests.get(url, cookies={'name': 'Someone'})
+
+# Checking the response status code and printing the response content
+print(f"Response Status Code: {response.status_code}")
+print(f"Response Content: {response.json()}")
