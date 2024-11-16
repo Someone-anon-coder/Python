@@ -1,0 +1,97 @@
+# Importing threading module
+import threading
+
+# Importing the time module
+import time
+
+# Defining a worker function
+def worker(num: int) -> None:
+    print(f"Worker {num} started")
+    
+    # Simulating some work by sleeping for 2 seconds
+    time.sleep(2)
+    print(f"After 2 seconds, Worker {num} finished")
+
+# Creating a list to hold the threads
+threads = []
+
+# Creating and starting 4 threads
+for i in range(4):
+    thread = threading.Thread(target=worker, args=(i,))
+    threads.append(thread)
+    thread.start()
+
+# Waiting for all threads to finish and joining them
+for thread in threads:
+    thread.join()
+
+print("All threads finished")
+
+
+# Creating a worker function with a lock and shared data
+def worker(lock: threading.Lock, shared_data: dict) -> None:
+    
+    # Acquiring the lock before accessing the shared data
+    with lock:
+        shared_data['counter'] += 1
+        print(f"Counter Value: {shared_data['counter']}")
+
+# Creating a list, a lock, and a shared data dictionary
+lock = threading.Lock()
+shared_data = {'counter': 0}
+threads = []
+
+# Creating and starting 5 threads
+for _ in range(5):
+    thread = threading.Thread(target=worker, args=(lock, shared_data))
+    threads.append(thread)
+    thread.start()
+
+# Waiting for all threads to finish and joining them
+for thread in threads:
+    thread.join()
+
+# Printing the final counter value
+print(f"Final Counter Value: {shared_data['counter']}")
+
+
+# Creating a worker function with an event
+def worker(event: threading.Event) -> None:
+    print("Worker started")
+    
+    # Waiting for the event to be set
+    event.wait()
+    print("Worker finished")
+
+# Creating an event and a list to hold the threads
+event = threading.Event()
+threads = []
+
+# Creating and starting 3 threads
+for _ in range(3):
+    thread = threading.Thread(target=worker, args=(event,))
+    threads.append(thread)
+    thread.start()
+
+# Waiting for 2 seconds before setting the event
+time.sleep(2)
+event.set()
+
+# Waiting for all threads to finish and joining them
+for thread in threads:
+    thread.join()
+
+print("All threads finished")
+
+
+# Importing the ThreadPoolExecutor from the concurrent.futures module
+from concurrent.futures import ThreadPoolExecutor
+
+# Defining a function to square a number
+def square(num: int) -> int:
+    return num * num
+
+# Using the ThreadPoolExecutor to execute the square function in parallel on a list of numbers and printing the results
+with ThreadPoolExecutor(max_workers=4) as executor:
+    results = executor.map(square, [1, 2, 3, 4, 5])
+    print("Squares:", list(results))

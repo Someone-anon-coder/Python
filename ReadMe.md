@@ -67,14 +67,14 @@ Below is the list of topics that I plan to cover, categorized from beginner to a
   - [✅] NumPy
   - [✅] Pandas
   - [✅] Matplotlib
-- [🟡] **12. Advanced Topics**
+- [✅] **12. Advanced Topics**
   - [✅] Generators
   - [✅] Decorators
   - [✅] Context Managers
   - [✅] Multiprocessing
-  - [🟡] Multithreading
-- [ ] **13. Web Scraping**
-  - [ ] Using Requests and BeautifulSoup
+  - [✅] Multithreading
+- [🟡] **13. Web Scraping**
+  - [🟡] Using Requests and BeautifulSoup
   - [ ] Using Selenium for Web Automation
 - [ ] **14. Working with APIs**
   - [ ] REST APIs with Requests
