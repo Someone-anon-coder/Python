@@ -75,8 +75,8 @@ Below is the list of topics that I plan to cover, categorized from beginner to a
   - [✅] Multithreading
 - [🟡] **13. Web Scraping**
   - [✅] Using Requests library
-  - [🟡] BeautifulSoup
-  - [ ] Using Selenium for Web Automation
+  - [✅] BeautifulSoup
+  - [🟡] Using Selenium for Web Automation
 - [ ] **14. Working with APIs**
   - [ ] REST APIs with Requests
   - [ ] JSON Data Handling

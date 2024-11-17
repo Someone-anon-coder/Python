@@ -1,0 +1,82 @@
+# !pip install beautifulsoup4 # Type in terminal to install beautifulsoup4
+
+# Importing requests module
+import requests
+
+# Importing BeautifulSoup module from bs4 package
+from bs4 import BeautifulSoup
+
+# Making a GET request to a website
+url = "https://www.example.com"
+response = requests.get(url)
+
+# Parsing the HTML content of the page using BeautifulSoup and printing it
+soup = BeautifulSoup(response.text, 'html.parser')
+print(soup.prettify())
+
+
+# Making a GET request to a website
+url = "https://www.example.com"
+response = requests.get(url)
+
+# Parsing the HTML content of the page using BeautifulSoup and printing the title
+soup = BeautifulSoup(response.text, 'html.parser')
+title = soup.title
+
+print(title)
+print(title.text)
+
+
+# Making a GET request to a website
+url = "https://www.example.com"
+response = requests.get(url)
+
+# Parsing the HTML content of the page using BeautifulSoup
+soup = BeautifulSoup(response.text, 'html.parser')
+
+# Finding first p tag and all a tags and printing them
+p_tag = soup.find('p')
+links = soup.find_all('a')
+
+print(p_tag)
+print()
+
+for link in links:
+    print(link)
+
+    # Printing value of href attribute of each link
+    print(link.get("href"))
+
+
+# Making a GET request to a website
+url = "https://www.example.com"
+response = requests.get(url)
+
+# Parsing the HTML content of the page using BeautifulSoup
+soup = BeautifulSoup(response.text, 'html.parser')
+
+# Selecting all elements with the class "item-class" and printing them
+items = soup.select('.item-class')
+
+for item in items:
+    print(item.text)
+
+
+# Making a GET request to yahoo finance website
+url = "https://finance.yahoo.com/markets/commodities/" # Do not requests multiple times as it is a live functional website
+response = requests.get(url)
+
+# Parsing the HTML content of the page using BeautifulSoup
+soup = BeautifulSoup(response.text, 'html.parser')
+
+# Finding the table with attribute data-testid="table-container" and printing it
+table = soup.find('table', attrs={"data-testid": "table-container"})
+
+# Getting all rows from the table
+rows = table.find_all('tr')
+
+# Printing all rows in the table
+for row in rows:
+    cols = row.find_all('td')
+    cols = [ele.text.strip() for ele in cols]
+    print(cols)
