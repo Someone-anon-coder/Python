@@ -1,0 +1,95 @@
+# Importing webdriver from selenium
+from selenium import webdriver
+
+# Importing By from selenium.webdriver.common.by
+from selenium.webdriver.common.by import By
+
+# Importing Keys from selenium.webdriver.common.keys
+from selenium.webdriver.common.keys import Keys
+
+# Importing Service from selenium.webdriver.firefox.service
+from selenium.webdriver.firefox.service import Service
+
+# Importing ActionChains from selenium.webdriver.common.action_chains
+from selenium.webdriver.common.action_chains import ActionChains
+
+# Importing GeckoDriverManager from webdriver_manager.firefox
+from webdriver_manager.firefox import GeckoDriverManager
+
+# Importing time
+import time
+
+# Getting firefox options
+options = webdriver.FirefoxOptions()
+# options.add_argument("--headless") # uncomment to run firefox without GUI
+
+# Creating a new instance of the Firefox driver with GeckoDriverManager and options and visiting google.com
+driver = webdriver.Firefox(service=Service(GeckoDriverManager().install()), options=options)
+driver.get("https://www.google.com")
+
+# Waiting sometime and quitting the driver
+time.sleep(5)
+driver.quit()
+
+
+# Creating a new instance of the Firefox driver with GeckoDriverManager and options
+driver = webdriver.Firefox(service=Service(GeckoDriverManager().install()), options=options)
+
+# Visiting github login page and Waiting for page to load
+driver.get("https://www.github.com/login")
+time.sleep(5)
+
+# Getting username and password fields and sending keys to them
+username_field = driver.find_element(By.ID, "login_field")
+password_field = driver.find_element(By.ID, "password")
+
+username_field.send_keys("username")
+password_field.send_keys("password")
+
+# Clicking the login button
+login_button = driver.find_element(By.NAME, "commit")
+login_button.click()
+
+# Waiting for page to load and quitting the driver
+time.sleep(5)
+driver.quit()
+
+
+# Creating a new instance of the Firefox driver with GeckoDriverManager and options
+driver = webdriver.Firefox(service=Service(GeckoDriverManager().install()), options=options)
+
+# Visiting example.com and Waiting for page to load
+driver.get("https://www.example.com")
+time.sleep(2)
+
+# Clicking the link with "ctrl down"
+link = driver.find_element(By.TAG_NAME, "a")
+actions = ActionChains(driver)
+actions.key_down(Keys.CONTROL).click(link).key_up(Keys.CONTROL).perform()
+
+time.sleep(2)
+
+# Getting the opened windows and switching to the new window
+windows = driver.window_handles
+driver.switch_to.window(windows[1])
+
+Getting the title of the new page and switching back to the original window
+print("Title of the new page:", driver.title)
+driver.switch_to.window(windows[0])
+
+# Waiting for page to load and quitting the driver
+time.sleep(2)
+driver.quit()
+
+
+# Getting firefox options and setting headless
+options = webdriver.FirefoxOptions()
+options.add_argument("--headless")
+
+# Creating a new instance of the Firefox driver with GeckoDriverManager and options
+driver = webdriver.Firefox(service=Service(GeckoDriverManager().install()), options=options)
+driver.get("https://www.example.com")
+time.sleep(2)
+
+# Quitting the driver
+driver.quit()
