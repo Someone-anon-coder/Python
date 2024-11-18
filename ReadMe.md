@@ -79,8 +79,8 @@ Below is the list of topics that I plan to cover, categorized from beginner to a
   - [✅] Using Selenium for Web Automation
 - [🟡] **14. Testing and Debugging**
   - [✅] Writing Unit Tests with `unittest`
-  - [🟡] Debugging Techniques
-  - [ ] Using Debugger Tools
+  - [✅] Debugging Techniques
+  - [🟡] Using Debugger Tools
 - [ ] **15. Version Control**
   - [ ] Working with Git
   - [ ] Using GitHub for Collaboration

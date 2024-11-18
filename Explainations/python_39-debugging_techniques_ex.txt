@@ -1,0 +1,94 @@
+# Creating a function to add two numbers
+def add_numbers(num1: int, num2: int) -> int:
+    """Add two numbers and return the result.
+    
+    Args:
+        num1 (int): The first number.
+        num2 (int): The second number.
+        
+    Returns:
+        int: The sum of the two numbers.
+    """
+
+    # Printing the arguments passed to the function
+    print(f"Adding two numbers..., {num1} + {num2}")
+    
+    # Adding the two numbers and storing the result in a variable
+    result =  num1 + num2
+    print(f"Done Adding two numbers")
+
+    # Returning the result
+    return result
+
+# Printing the result of the function
+print("Addition:", add_numbers(1, 2))
+
+
+# Creating a function to divide two numbers
+def divide_numbers(num1: int, num2: int) -> float:
+    """Divide two numbers and return the result.
+
+    Args:
+        num1 (int): The numerator.
+        num2 (int): The denominator.
+
+    Returns:
+        float: The quotient of the two numbers.
+    """
+
+    print(f"Dividing two numbers..., {num1} / {num2}")
+    return num1 / num2
+
+# print("Division:", divide_numbers(4, 0)) # Uncomment to see the stack trace
+
+
+# Importing the pdb module
+import pdb
+
+# Creating a function to add two numbers
+def add(num1: int, num2: int) -> int:
+    result = num1 + num2
+    return result
+
+# Creating the main function
+def main():
+    x = 10
+    y = 20
+
+    # Setting a trace point in the code
+    pdb.set_trace()
+    z = add(x, y)
+    print(f"Result: {z}")
+
+# Running the main function
+main()
+
+
+# Importing the logging module
+import logging
+
+# Setting the logging level to DEBUG
+logging.basicConfig(level=logging.DEBUG)
+
+# Creating a function to add two numbers
+def add(num1: int, num2: int) -> int:
+    
+    # Logging a debug message before adding the two numbers
+    logging.debug(f"Adding two numbers..., {num1} + {num2}")
+    result = num1 + num2
+    return result
+
+# Creating the main function
+def main():
+    x = 10
+    y = 20
+
+    # Logging a debug message before calling the add function
+    logging.info(f"Starting the addition of {x} and {y}")
+    result = add(x, y)
+    
+    # Logging a debug message after the add function returns
+    logging.info(f"Result: {result}")
+
+# Running the main function
+main()
