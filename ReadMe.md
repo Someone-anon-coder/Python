@@ -77,20 +77,14 @@ Below is the list of topics that I plan to cover, categorized from beginner to a
   - [✅] Using Requests library
   - [✅] BeautifulSoup
   - [✅] Using Selenium for Web Automation
-- [🟡] **14. Working with APIs**
-  - [🟡] REST APIs with Requests
-  - [ ] JSON Data Handling
-- [ ] **15. Data Analysis and Visualization**
-  - [ ] Data Cleaning with Pandas
-  - [ ] Visualization with Matplotlib and Seaborn
-- [ ] **16. Testing and Debugging**
-  - [ ] Writing Unit Tests with `unittest`
+- [🟡] **14. Testing and Debugging**
+  - [🟡] Writing Unit Tests with `unittest`
   - [ ] Debugging Techniques
   - [ ] Using Debugger Tools
-- [ ] **17. Version Control**
+- [ ] **15. Version Control**
   - [ ] Working with Git
   - [ ] Using GitHub for Collaboration
-- [ ] **18. Deployment**
+- [ ] **16. Deployment**
   - [ ] Packaging Python Applications
   - [ ] Virtual Environments
   - [ ] Deploying to the Cloud (e.g., AWS, Heroku)
