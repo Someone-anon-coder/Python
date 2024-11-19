@@ -1,0 +1,108 @@
+# Importing sqlite3 module
+import sqlite3
+
+# Create a connection to the database and get a cursor
+conn = sqlite3.connect("Database/example.db")
+cursor = conn.cursor()
+
+# Create a table with 3 coloumns
+cursor.execute('''
+    CREATE TABLE IF NOT EXISTS users (
+        id INTEGER PRIMARY KEY,
+        name TEXT,
+        age INTEGER
+    )
+''')
+
+# Commit the changes to the database
+conn.commit()
+
+# Insert some data into the table
+cursor.execute("INSERT INTO users (name, age) VALUES (?, ?)", ("Someone", 100))
+cursor.execute("INSERT INTO users (name, age) VALUES (?, ?)", ("Someone Else", 84))
+
+# Commit the changes to the database
+conn.commit()
+
+# Query the data from the table
+cursor.execute("SELECT * FROM users")
+rows = cursor.fetchall()
+
+# Print the rows one by one
+for row in rows:
+    print(row)
+
+# Update the data in the table and commit the changes
+cursor.execute("UPDATE users SET age = ? WHERE name = ?", (101, "Someone"))
+conn.commit()
+
+# Delete the data from the table and commit the changes
+cursor.execute("DELETE FROM users WHERE name = ?", ("Someone Else",))
+conn.commit()
+
+# Query the data from the table and print the rows one by one after the changes
+cursor.execute("SELECT * FROM users")
+rows = cursor.fetchall()
+
+for row in rows:
+    print(row)
+
+# Close the connection to the database
+conn.close()
+
+
+# Importing mysql.connector module
+import mysql.connector
+
+# Connecting to the mysql database with the credentials
+conn = mysql.connector.connect(
+    host = "localhost",
+    user = "test_user",
+    password = "my_password",
+    database = "example_db",
+)
+
+# Creating a cursor object and executing a query to create a database
+cursor = conn.cursor()
+cursor.execute("CREATE DATABASE IF NOT EXISTS example_db")
+
+# Creating a table in the database
+cursor.execute('''
+    CREATE TABLE IF NOT EXISTS users (
+        id INT AUTO_INCREMENT PRIMARY KEY,
+        name VARCHAR(255),
+        age INT
+    )
+''')
+
+# Inserting data into the table
+cursor.execute("INSERT INTO users (name, age) VALUES (%s, %s)", ('Someone', 100))
+cursor.execute("INSERT INTO users (name, age) VALUES (%s, %s)", ('Someone Else', 84))
+
+# Commiting the changes to the database
+conn.commit()
+
+# Querying the data from the table and printing the rows one by one
+cursor.execute("SELECT * FROM users")
+rows = cursor.fetchall()
+
+for row in rows:
+    print(row)
+
+# Updating the data in the table and commiting the changes
+cursor.execute("UPDATE users SET age = %s WHERE name = %s", (101, "Someone"))
+conn.commit()
+
+# Deleting the data from the table and commiting the changes
+cursor.execute("DELETE FROM users WHERE name = %s", ("Someone Else",))
+conn.commit()
+
+# Querying the data from the table and printing the rows one by one after the changes
+cursor.execute("SELECT * FROM users")
+rows = cursor.fetchall()
+
+for row in rows:
+    print(row)
+
+# Closing the connection to the database
+conn.close()

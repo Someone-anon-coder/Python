@@ -81,9 +81,9 @@ Below is the list of topics that I plan to cover, categorized from beginner to a
   - [✅] Writing Unit Tests with `unittest`
   - [✅] Debugging Techniques
 - [🟡] **15.Working with Databases**
-  - [🟡] SQLite in Python
-  - [ ] MySQL Database Integration
-  - [ ] SQLAlchemy (ORM)
+  - [✅] SQLite in Python
+  - [✅] MySQL Database Integration
+  - [🟡] SQLAlchemy (ORM)
 - [ ] **15. Version Control**
   - [ ] Working with Git
   - [ ] Using GitHub for Collaboration
