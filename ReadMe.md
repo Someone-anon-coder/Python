@@ -77,10 +77,13 @@ Below is the list of topics that I plan to cover, categorized from beginner to a
   - [✅] Using Requests library
   - [✅] BeautifulSoup
   - [✅] Using Selenium for Web Automation
-- [🟡] **14. Testing and Debugging**
+- [✅] **14. Testing and Debugging**
   - [✅] Writing Unit Tests with `unittest`
   - [✅] Debugging Techniques
-  - [🟡] Using Debugger Tools
+- [🟡] **15.Working with Databases**
+  - [🟡] SQLite in Python
+  - [ ] MySQL Database Integration
+  - [ ] SQLAlchemy (ORM)
 - [ ] **15. Version Control**
   - [ ] Working with Git
   - [ ] Using GitHub for Collaboration
