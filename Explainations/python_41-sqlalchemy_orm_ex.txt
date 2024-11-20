@@ -1,0 +1,79 @@
+# Importing create_engine from sqlalchemy module
+from sqlalchemy import create_engine
+
+# Creating a database engine
+engine = create_engine('sqlite:///Database/example_alchemy.db', echo=True)
+
+# Importing Column, Integer, String from sqlalchemy
+from sqlalchemy import Column, Integer, String
+
+# Importing declarative_base from sqlalchemy.ext.declarative
+from sqlalchemy.ext.declarative import declarative_base
+
+# Creating a base class for declarative models
+Base = declarative_base()
+
+# Creating a base class that extends declarative_base
+class User(Base):
+    
+    # Defining the table name
+    __tablename__ = 'users'
+
+    # Defining the columns of the table
+    id = Column(Integer, primary_key=True)
+    name = Column(String)
+    age = Column(Integer)
+
+    # Defining the string representation of the object
+    def __repr__(self):
+        return f"<User(name='{self.name}', email='{self.age}')>"
+
+# Creating the table in the database
+Base.metadata.create_all(engine)
+
+
+# Importing sessionmaker from sqlalchemy.orm
+from sqlalchemy.orm import sessionmaker
+
+# Creating a session
+Session = sessionmaker(bind=engine)
+session = Session()
+
+# Creating a new user object and adding it to the session
+user = User(name='Someone', age=100)
+session.add(user)
+session.commit()
+
+# Creating a new user object and adding it to the session
+user = User(name='Someone Else', age=84)
+session.add(user)
+session.commit()
+
+
+# Querying the database for all users and printing them
+users = session.query(User).all()
+for user in users:
+    print(user)
+
+# Querying the database for a specific user and printing it
+user = session.query(User).filter_by(id=1).first()
+print(user)
+
+
+# Querying the database for a specific user and updating their age
+user1 = session.query(User).filter_by(name="Someone").first()
+user1.age = 101
+session.commit()
+
+# Querying the database for a specific user and deleting it
+session.delete(session.query(User).filter_by(name="Someone Else").first())
+session.commit()
+
+
+# Querying the database for all users and printing them
+users = session.query(User).all()
+for user in users:
+    print(user)
+
+# Closing the session
+session.close()
