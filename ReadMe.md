@@ -86,8 +86,8 @@ Below is the list of topics that I plan to cover, categorized from beginner to a
   - [✅] SQLAlchemy (ORM)
 - [✅] **16. Game Development**
   - [✅] Using Pygame for 2D Games
-  - [🟡] Basics of Game Loops and Events
-- [ ] **15. Version Control**
+  - [✅] Basics of Game Loops and Events
+- [🟡] **15. Version Control**
   - [ ] Working with Git
   - [ ] Using GitHub for Collaboration
 - [ ] **16. Deployment**
