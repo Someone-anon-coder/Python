@@ -84,8 +84,11 @@ Below is the list of topics that I plan to cover, categorized from beginner to a
   - [✅] SQLite in Python
   - [✅] MySQL Database Integration
   - [✅] SQLAlchemy (ORM)
-- [🟡] **15. Version Control**
-  - [🟡] Working with Git
+- [🟡] **16. Game Development**
+  - [🟡] Using Pygame for 2D Games
+  - [ ] Basics of Game Loops and Events
+- [ ] **15. Version Control**
+  - [ ] Working with Git
   - [ ] Using GitHub for Collaboration
 - [ ] **16. Deployment**
   - [ ] Packaging Python Applications
