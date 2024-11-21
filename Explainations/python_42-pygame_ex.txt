@@ -1,0 +1,65 @@
+# !pip install pygame # Type in terminal to install pygame
+
+# Importing pygame library
+import pygame
+
+# Importing sys module
+import sys
+
+# Initializing pygame
+pygame.init()
+
+# Setting up the screen
+WIDTH, HEIGHT = 800, 600
+screen = pygame.display.set_mode((WIDTH, HEIGHT))
+pygame.display.set_caption("Simple 2D Game")
+
+# Setting up the player
+player_color = (0, 255, 0) # Green Color
+player_width, player_height = 50, 50
+
+# Player position and speed
+player_x, player_y = WIDTH // 2 - player_width // 2, HEIGHT // 2 - player_height // 2
+player_speed = 5
+
+# Game loop
+running = True
+while running:
+    
+    # Checking for events
+    for event in pygame.event.get():
+
+        # If pygame window is closed then quit the game
+        if event.type == pygame.QUIT:
+            running = False
+    
+    # Get the pressed keys
+    keys = pygame.key.get_pressed()
+
+    # Move the player based on the pressed keys
+    if keys[pygame.K_LEFT]:
+        player_x -= player_speed
+    if keys[pygame.K_RIGHT]:
+        player_x += player_speed
+    if keys[pygame.K_UP]:
+        player_y -= player_speed
+    if keys[pygame.K_DOWN]:
+        player_y += player_speed
+    
+    # Keep the player within the screen boundaries
+    player_x = max(0, min(WIDTH - player_width, player_x))
+    player_y = max(0, min(HEIGHT - player_height, player_y))
+
+    # Fill the screen with black color
+    screen.fill((0, 0, 0))
+
+    # Draw the player and flip the display
+    pygame.draw.rect(screen, player_color, (player_x, player_y, player_width, player_height))
+    pygame.display.flip()
+
+    # Set the frame rate
+    pygame.time.Clock().tick(60)
+
+# Quit pygame and exit the program
+pygame.quit()
+sys.exit()
