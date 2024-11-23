@@ -1,0 +1,59 @@
+# Importing socket module
+import socket
+
+# Creating a TCP client socket
+client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+
+# Define the server address and port
+HOST = '127.0.0.1'
+PORT = 12345
+
+# Connect to the server
+client_socket.connect((HOST, PORT))
+print(f"Connected to server at {HOST}:{PORT}")
+
+while True:
+
+    # Send data to the server
+    data = input("Enter Data: ")
+    client_socket.sendall(data.encode())
+
+    # If client sends 'exit', close the connection
+    if data == 'exit':
+        break
+
+    # Receive and print the response from the server
+    response = client_socket.recv(1024)
+    print(f"Received Response: {response.decode()}")
+
+# Close the TCP client socket
+client_socket.close()
+print("TCP Client closed")
+
+
+# Creating a UDP client socket
+socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+
+# Define the server address and port
+HOST = '127.0.0.1'
+PORT = 12345
+
+print(f"\nUDP Client is sending to {HOST}:{PORT}")
+
+while True:
+
+    # Send data to the server
+    data = input("Enter Data: ")
+    socket.sendto(data.encode(), (HOST, PORT))
+
+    # If client sends 'exit', close the socket
+    if data == 'exit':
+        break
+
+    # Receive and print the response from the server
+    response, _ = socket.recvfrom(1024)
+    print(f"Received Response: {response.decode()}")
+
+# Close the UDP client socket
+socket.close()
+print("UDP Client closed")

@@ -1,0 +1,65 @@
+# Importing socket module
+import socket
+
+# Creating a TCP server socket
+server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+
+# Define the server address and port
+HOST = '127.0.0.1'
+PORT = 12345
+
+# Bind the socket to the address and port and listen for 1 incoming connection
+server_socket.bind((HOST, PORT))
+server_socket.listen(2)
+print(f"TCP Server is listening on {HOST}:{PORT}")
+
+# Accept a client connection
+client_socket, client_address = server_socket.accept()
+print(f"Accepted connection from {client_address[0]}:{client_address[1]}")
+
+
+while True:
+
+    # Receive data from the client
+    data = client_socket.recv(1024)
+    if data.decode() == 'exit':
+
+        # If client sends 'exit', close the connection and break the loop
+        client_socket.close()
+        break
+
+    # Print the received data and send a response back to the client
+    print(f"Received Data: {data.decode()}")
+    client_socket.sendall(b'Hello, Client!')
+
+# Close the TCP server socket
+server_socket.close()
+print("TCP Server closed")
+
+
+# Creating a UDP server socket
+server_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+
+# Define the server address and port
+HOST = '127.0.0.1'
+PORT = 12345
+
+# Bind the socket to the address and port and start listening for incoming data
+server_socket.bind((HOST, PORT))
+print(f"UDP Server is listening on {HOST}:{PORT}")
+
+while True:
+
+    # Receive data from the client
+    data, client_address = server_socket.recvfrom(1024)
+    if data.decode() == 'exit':
+        # If client sends 'exit', close the socket
+        break
+
+    # Print the received data and send a response back to the client
+    print(f"Received Data: {data.decode()}")
+    server_socket.sendto(b'Hello, Client!', client_address)
+
+# Close the UDP server socket
+server_socket.close()
+print("UDP Server closed")
