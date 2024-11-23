@@ -87,10 +87,14 @@ Below is the list of topics that I plan to cover, categorized from beginner to a
 - [✅] **16. Game Development**
   - [✅] Using Pygame for 2D Games
   - [✅] Basics of Game Loops and Events
-- [🟡] **15. Version Control**
+- [🟡] **17. Networking**
+  - [🟡] Sockets in Python
+  - [ ] Working with HTTP/HTTPS Requests
+  - [ ] Email Automation
+- [ ] **18. Version Control**
   - [ ] Working with Git
   - [ ] Using GitHub for Collaboration
-- [ ] **16. Deployment**
+- [ ] **19. Deployment**
   - [ ] Packaging Python Applications
   - [ ] Virtual Environments
   - [ ] Deploying to the Cloud (e.g., AWS, Heroku)
