@@ -1,0 +1,65 @@
+# Importing the smtplib module
+import smtplib
+
+# Importing MIMEText and MIMEMultipart from email.mime.text and email.mime.multipart module
+from email.mime.text import MIMEText
+from email.mime.multipart import MIMEMultipart
+
+# Define the email credentials
+sender_email = ""
+recipient_email = ""
+password = ""
+
+# Create the email message
+message = MIMEMultipart()
+
+# Set the email headers
+message['From'] = sender_email
+message['To'] = recipient_email
+message['Subject'] = "Test Email From Python"
+
+# Set the email body
+body = "Hello! This is you"
+message.attach(MIMEText(body, 'plain'))
+
+try:
+
+    # Try to get a server connection and login with the credentials
+    server = smtplib.SMTP('smtp.gmail.com', 465)
+    server.login(sender_email, password)
+
+    # Send the email
+    server.sendmail(sender_email, recipient_email, message.as_string())
+    print("Email Sent Successfully!")
+
+except Exception as e:
+    # Print any error messages to the console
+    print(f"Error: {e}")
+
+finally:
+    # Close the server connection
+    server.quit()
+
+
+# Importing MIMEBase from email.mime.base module
+from email.mime.base import MIMEBase
+
+# Importing encoders from email module
+from email import encoders
+
+# Open the file in python as a binary file
+filename = "Files/read_example.csv"
+attachment = open(filename, "rb")
+
+# Instance of MIMEBase and named as part
+part = MIMEBase('application', 'octet-stream')
+
+# To change the payload into encoded form
+part.set_payload((attachment).read())
+encoders.encode_base64(part)
+
+# Add header with filename
+part.add_header('Content-Disposition', "attachment; filename= " + filename)
+
+# Attach the instance 'part' to instance 'message'
+message.attach(part)
