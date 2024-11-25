@@ -1,0 +1,65 @@
+# Importing numpy module
+import numpy
+
+# Importing matplotlib.pyplot as plt
+import matplotlib.pyplot as plt
+
+# Importing LinearRegression from sklearn.linear_model
+from sklearn.linear_model import LinearRegression
+
+# Importing train_test_split from sklearn.model_selection
+from sklearn.model_selection import train_test_split
+
+# Importing mean_squared_error from sklearn.metrics
+from sklearn.metrics import mean_squared_error
+
+# Creating numpy arrays for X and Y
+X = numpy.array([1.1, 1.3, 1.5, 2.0, 2.2, 2.8, 3.0]).reshape(-1, 1)
+Y = numpy.array([100, 120, 150, 200, 220, 270, 300])
+
+# Splitting the data into training and testing sets
+X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size=0.2, random_state=42)
+
+# Creating a Linear Regression model and fitting it to the training data
+model = LinearRegression()
+model.fit(X_train, Y_train)
+
+# Predicting the output for the test data and calculating the mean squared error
+Y_pred = model.predict(X_test)
+print(f"Mean Squared Error: {mean_squared_error(Y_test, Y_pred)}")
+
+# Plotting the actual data and the predicted line
+plt.scatter(X, Y, color="blue", label="Actual Data")
+plt.plot(X, model.predict(X), color="red", label="Predicted Line")
+
+# Adding labels and legend to the plot
+plt.xlabel("House Size (1000 sqft)")
+plt.ylabel("House Price ($1000s)")
+plt.legend()
+
+# Saving the plot as an image file
+plt.savefig("Images/house_prices.png")
+
+
+# Importing StandardScaler, OneHotEncoder, and SimpleImputer from sklearn.preprocessing
+from sklearn.preprocessing import StandardScaler, OneHotEncoder
+
+# Importing SimpleImputer from sklearn.impute
+from sklearn.impute import SimpleImputer
+
+# Creating a numpy array for X
+X = numpy.array([1.1, 1.3, 1.5, 2.0, 2.2, 2.8, 3.0]).reshape(-1, 1)
+
+# Creating a StandardScaler object and scaling the data
+scaler = StandardScaler()
+print(f"X Scaled: {scaler.fit_transform(X)}")
+
+# Creating a encoder object and encoding the data
+encoder = OneHotEncoder()
+X_encoded = encoder.fit_transform([['Red'], ['Green'], ['Blue']]).toarray()
+print(f"X Encoded: {X_encoded}")
+
+# Creating a SimpleImputer object and imputing missing values
+imputer = SimpleImputer(strategy='mean')
+X_with_missing = [[1], [2], [None], [4]]
+print(f"X filled: {imputer.fit_transform(X_with_missing)}")

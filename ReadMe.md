@@ -91,8 +91,10 @@ Below is the list of topics that I plan to cover, categorized from beginner to a
   - [✅] Sockets in Python
   - [✅] Email Automation
 - [🟡] **18. Machine Learning Basics**
-  - [🟡] Introduction to Machine Learning Concepts
-  - [ ] Working with Libraries like Scikit-Learn
+  - [✅] Working with Libraries like Scikit-Learn
+  - [🟡] SuperVised Learning
+  - [ ] UnsuperVised Learning
+  - [ ] Reinforcement Learning
   
 ## 📂 Directory Structure
 
