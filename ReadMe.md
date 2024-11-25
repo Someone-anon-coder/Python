@@ -90,13 +90,9 @@ Below is the list of topics that I plan to cover, categorized from beginner to a
 - [✅] **17. Networking**
   - [✅] Sockets in Python
   - [✅] Email Automation
-- [🟡] **18. Version Control**
-  - [🟡] Working with Git
-  - [ ] Using GitHub for Collaboration
-- [ ] **19. Deployment**
-  - [ ] Packaging Python Applications
-  - [ ] Virtual Environments
-  - [ ] Deploying to the Cloud (e.g., AWS, Heroku)
+- [🟡] **18. Machine Learning Basics**
+  - [🟡] Introduction to Machine Learning Concepts
+  - [ ] Working with Libraries like Scikit-Learn
   
 ## 📂 Directory Structure
 
