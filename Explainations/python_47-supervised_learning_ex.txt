@@ -1,0 +1,99 @@
+# Importing LinearRegression from sklearn.linear_model
+from sklearn.linear_model import LinearRegression
+
+# Importing test_size from sklearn.model_selection
+from sklearn.model_selection import train_test_split
+
+# Importing mean_squared_error from sklearn.metrics
+from sklearn.metrics import mean_squared_error
+
+# Creating input and output samples
+X = [[1500], [1800], [2400], [3000], [3500], [4000]]
+y = [400000, 500000, 600000, 650000, 700000, 750000]
+
+# Splitting the data into training and testing sets
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+# Creating and training the linear regression model
+model = LinearRegression()
+model.fit(X_train, y_train)
+
+# Making predictions on the test data
+y_pred = model.predict(X_test)
+
+# Printing the actual output, predicted output, and mean squared error
+print("Test Data Output:", y_test)
+print("Test Data Predicted Output:", y_pred)
+print("Mean Squared Error:", mean_squared_error(y_test, y_pred))
+
+
+# Importing LogisticRegression from sklearn.linear_model
+from sklearn.linear_model import LogisticRegression
+
+# Importing accuracy_score from sklearn.metrics
+from sklearn.metrics import accuracy_score
+
+# Creating input and output samples
+X = [[25, 40000], [30, 50000], [35, 60000], [40, 70000], [45, 80000]]
+y = [0, 0, 1, 1, 1]
+
+# Splitting the data into training and testing sets
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+# Creating and training the logistic regression model
+model = LogisticRegression()
+model.fit(X_train, y_train)
+
+# Making predictions on the test data
+y_pred = model.predict(X_test)
+
+# Printing the actual output, predicted output, and accuracy score
+print(f"Test Data Output: {y_test}")
+print(f"Test Data Predicted Output: {y_pred}")
+print(f"Accuracy: {accuracy_score(y_test, y_pred)}")
+
+
+# Importing SVC from sklearn.svm
+from sklearn.svm import SVC
+
+# Creating input and output samples
+X = [[2, 3], [4, 6], [6, 8], [1, 1], [2, 2], [7, 7]]
+y = [0, 0, 0, 1, 1, 1]
+
+# Splitting the data into training and testing sets
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+# Creating and training the support vector machine model with a linear kernel
+model = SVC(kernel='linear')
+model.fit(X_train, y_train)
+
+# Making predictions on the test data
+y_pred = model.predict(X_test)
+
+# Printing the actual output, predicted output, and accuracy score
+print(f"Test Data Output: {y_test}")
+print(f"Test Data Predicted Output: {y_pred}")
+print(f"Accuracy: {accuracy_score(y_test, y_pred)}")
+
+
+# Importing DecisionTreeClassifier from sklearn.tree
+from sklearn.tree import DecisionTreeClassifier
+
+# Creating input and output samples
+X = [[1, 2], [2, 3], [3, 4], [4, 5], [5, 6]]
+y = [0, 0, 1, 1, 1]
+
+# Splitting the data into training and testing sets
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+# Creating and training the decision tree model
+model = DecisionTreeClassifier()
+model.fit(X_train, y_train)
+
+# Making predictions on the test data
+y_pred = model.predict(X_test)
+
+# Printing the actual output, predicted output, and accuracy score
+print(f"Test Data Output: {y_test}")
+print(f"Test Data Predicted Output: {y_pred}")
+print(f"Accuracy: {accuracy_score(y_test, y_pred)}")
