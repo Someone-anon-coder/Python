@@ -1,0 +1,70 @@
+# Importing pyplot from matplotlib as plt
+import matplotlib.pyplot as plt
+
+# Importing KMeans from sklearn.cluster
+from sklearn.cluster import KMeans
+
+# Importing make_blobs from sklearn.cluster
+from sklearn.datasets import make_blobs
+
+# Creating dummy dataset with 1 feature
+X, y = make_blobs(n_samples=300, centers=4, cluster_std=0.60, random_state=0)
+
+# Creating a KMeans instance with 4 clusters: model
+k_means = KMeans(n_clusters=4)
+
+# Fitting model to points and predicting cluster labels
+k_means.fit(X)
+y_means = k_means.predict(X)
+
+# Plot the data points and cluster centroids
+plt.figure(figsize=(10, 8))
+plt.scatter(X[:, 0], X[:, 1], c=y_means, s=50, cmap='viridis')
+
+# Plotting the centroids of the clusters
+center = k_means.cluster_centers_
+plt.scatter(center[:, 0], center[:, 1], c='red', s=200, marker='X', label='Centroids')
+
+# Adding labels and title
+plt.title("K-Means Clustering")
+plt.legend(loc='upper right')
+
+# Adding labels to the axes
+plt.xlabel('Feature 1')
+plt.ylabel('Feature 2')
+
+# Saving the plot
+plt.savefig("Images/kmeans_clustering.png")
+
+
+# Importing PCA from sklearn.decomposition
+from sklearn.decomposition import PCA
+
+# Importing load_iris from sklearn.datasets
+from sklearn.datasets import load_iris
+
+# Loading the dataset
+data = load_iris()
+
+# Creating features and target arrays
+X = data.data
+y = data.target
+
+# Creating a PCA instance: pca with 2 components and fitting it to X
+pca = PCA(n_components=2)
+x_pca = pca.fit_transform(X)
+
+# Plotting the results with plt.scatter
+plt.figure(figsize=(10, 8))
+scatter = plt.scatter(x_pca[:, 0], x_pca[:, 1], c=y, cmap='viridis', s=50)
+
+# Adding a color bar
+plt.colorbar(scatter)
+plt.title('PCA - Iris Dataset (2D)')
+
+# Adding labels to the axes
+plt.xlabel('Principal Component 1')
+plt.ylabel('Principal Component 2')
+
+# Saving the plot
+plt.savefig("Images/pca_iris.png")
