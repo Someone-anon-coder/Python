@@ -90,11 +90,11 @@ Below is the list of topics that I plan to cover, categorized from beginner to a
 - [✅] **17. Networking**
   - [✅] Sockets in Python
   - [✅] Email Automation
-- [🟡] **18. Machine Learning Basics**
+- [✅] **18. Machine Learning Basics**
   - [✅] Working with Libraries like Scikit-Learn
   - [✅] SuperVised Learning
   - [✅] UnsuperVised Learning
-  - [🟡] Reinforcement Learning
+  - [✅] Reinforcement Learning
   
 ## 📂 Directory Structure
 
