@@ -396,8 +396,8 @@ def train(episodes: int, epsilon: float, alpha: float, gamma: float) -> None:
 
 if __name__ == "__main__":
     epsilon = 0.25    # Exploration Rate
-    alpha = 0.07      # Learning Rate
-    gamma = 0.8       # Discount Factor
-    episodes = 10000 # Iteration Count
+    alpha = 0.05      # Learning Rate
+    gamma = 0.15       # Discount Factor
+    episodes = 10000  # Iteration Count
     
     train(episodes=episodes, epsilon=epsilon, alpha=alpha, gamma=gamma)
