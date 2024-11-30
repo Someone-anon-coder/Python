@@ -1,0 +1,487 @@
+# Importing time, pygame, and random modules
+import time
+import pygame
+import random
+
+# Importing numpy as np
+import numpy as np
+
+# Importing defaultdict from collections
+from collections import defaultdict
+
+# Creating a class TicTacToe for game environment
+class TicTacToe:
+
+    # Initializing the class
+    def __init__(self) -> None:
+        """
+            Args: 
+                None
+
+            Returns:
+                None
+
+            Concept:
+                Initializes class Tictactoe and sets up the board, current player, and player wins and pygame.
+        """
+        
+        # Setting up the board, current player, and player wins
+        self.board = np.zeros((3, 3), dtype=int)
+        self.current_player = 1
+        self.player1_wincount = 0
+        self.player2_wincount = 0
+        self.draw_count = 0
+        
+        # Setting up pygame
+        self.init_pygame()
+
+    # Function to initialize pygame
+    def init_pygame(self) -> None:
+        """
+            Args:
+                None
+
+            Returns:
+                None
+
+            Concept:
+                Initializes pygame and sets up the screen, font, and clock.
+        """
+        
+        # Initializing pygame
+        pygame.init()
+
+        # Setting up the screen and caption and font
+        self.screen = pygame.display.set_mode((300, 300))
+        pygame.display.set_caption("Tic-Tac-Toe Training")
+        self.font = pygame.font.Font(None, 74)
+        
+        # Setting up the clock
+        self.clock = pygame.time.Clock()
+
+    # Function to reset the board
+    def reset(self) -> np.ndarray:
+        """
+            Args:
+                None
+            
+            Returns:
+                None
+            
+            Concept:
+                Resets the board, current player, and player wins.
+        """
+        
+        # Resetting the board, current player, and player wins
+        self.board = np.zeros((3, 3), dtype=int)
+        self.current_player = 1
+        self.render()
+        
+        # Return the reset board
+        return self.board
+
+    # Function to get available actions
+    def available_actions(self) -> list:
+        """
+            Args:
+                None
+            
+            Returns:
+                list of available actions
+            
+            Concept:
+                Returns a list of all available actions for the agent on the board.
+        """
+        
+        # Return a list of all available actions
+        return list(zip(*np.where(self.board == 0)))
+    
+    # Function to make a move
+    def make_move(self, action: tuple[int, int]) -> tuple[int, bool]:
+        """
+            Args:
+                action: Action selected by the agent (tuple)
+            
+            Returns:
+                value of reward and whether the game is over with this move
+                
+            Concept:
+                Makes a move on the board and updates the current player.
+        """
+        
+        # Make a move on the board and update the current player
+        if self.board[action] == 0:
+            self.board[action] = self.current_player
+            reward, done = self.check_winner()
+            self.render()
+            self.current_player = -self.current_player
+            
+            # Return the reward and whether the game is over
+            return reward, done
+        return 0, False
+    
+    # Function to check winner
+    def check_winner(self) -> tuple[int, bool]:
+        """
+            Args:
+                None
+            
+            Returns:
+                player who won and that the game is over
+            
+            Concept:
+                Checks if there is a winner on the board.
+        """
+        
+        # Check if there is a winner on the board
+        for i in range(3):
+            if np.all(self.board[i, :] == self.current_player) or np.all(self.board[:, i] == self.current_player):
+                print(f"Player {1 if self.current_player == 1 else 2} wins!")
+                print(self.board)
+                
+                if self.current_player == 1:
+                    self.player1_wincount += 1
+                else:
+                    self.player2_wincount += 1
+                
+                # Return the winner and that the game is over
+                return 1 if self.current_player == 1 else -1, True
+        
+        # Check if there is a winner on the board 
+        if np.all(np.diag(self.board) == self.current_player) or np.all(np.diag(np.fliplr(self.board)) == self.current_player):
+            print(f"Player {1 if self.current_player == 1 else 2} wins!")
+            print(self.board)
+            
+            if self.current_player == 1:
+                self.player1_wincount += 1
+            else:
+                self.player2_wincount += 1
+            
+            # Return the winner and that the game is over
+            return 1 if self.current_player == 1 else -1, True
+        
+        # Check if the game is a draw
+        if not np.any(self.board == 0):
+            print("It's a draw!")
+            print(self.board)
+            
+            self.draw_count += 1
+            
+            # Return 0 and that the game is over
+            return 0, True
+        
+        return 0, False
+
+    # Function to check critical points
+    def check_critical(self, player: int) -> tuple[float, tuple[int, int]]:
+        """
+
+        Args:
+            player: specifier of player
+
+        Returns:
+            reward and critical position on the board and location of critical position.
+
+        Concept:
+            Checks if there is a critical position on the board. Critical position is a position that if one move can decide the winner.
+        """
+        
+        # Check rows
+        for i in range(3):
+
+            # Check if there is a critical position on the board
+            if np.sum(self.board[i, :] == player) == 2 and np.any(self.board[i, :] == 0):
+                return 0.1, (i, np.where(self.board[i, :] == 0)[0][0])
+            
+            # Check if there is a critical position on the board
+            if np.sum(self.board[:, i] == player) == 2 and np.any(self.board[:, i] == 0):
+                return 0.1, (np.where(self.board[:, i] == 0)[0][0], i)
+        
+        # Check diagonals
+        if np.sum(np.diag(self.board) == player) == 2 and np.any(np.diag(self.board) == 0):
+            idx = np.where(np.diag(self.board) == 0)[0][0]
+            return 0.1, (idx, idx)
+        
+        # Check diagonals
+        if np.sum(np.diag(np.fliplr(self.board)) == player) == 2 and np.any(np.diag(np.fliplr(self.board)) == 0):
+            idx = np.where(np.diag(np.fliplr(self.board)) == 0)[0][0]
+            return 0.1, (idx, 2 - idx)
+        
+        # Check if there is a critical position on the board for the opponent
+        opponent = -player
+        for i in range(3):
+        
+            # Check if there is a critical position on the board
+            if np.sum(self.board[i, :] == opponent) == 2 and np.any(self.board[i, :] == 0):
+                return -0.1, (i, np.where(self.board[i, :] == 0)[0][0])
+            
+            # Check if there is a critical position on the board
+            if np.sum(self.board[:, i] == opponent) == 2 and np.any(self.board[:, i] == 0):
+                return -0.1, (np.where(self.board[:, i] == 0)[0][0], i)
+        
+        # Check diagonals
+        if np.sum(np.diag(self.board) == opponent) == 2 and np.any(np.diag(self.board) == 0):
+            idx = np.where(np.diag(self.board) == 0)[0][0]
+            return -0.1, (idx, idx)
+        
+        # Check diagonals
+        if np.sum(np.diag(np.fliplr(self.board)) == opponent) == 2 and np.any(np.diag(np.fliplr(self.board)) == 0):
+            idx = np.where(np.diag(np.fliplr(self.board)) == 0)[0][0]
+            return -0.1, (idx, 2 - idx)
+        
+        # Return 0 and that the game is over
+        return 0.2, None
+
+    # Function to render the board
+    def render(self) -> None:
+        """
+            Args:
+                None
+            
+            Returns:
+                None
+            
+            Concept:
+                Renders the board on the screen.
+        """
+        
+        # Render the board on the screen
+        self.screen.fill((255, 255, 255))
+        for row in range(3):
+            for col in range(3):
+                
+                # Draw the square
+                if self.board[row, col] == 1:
+                    pygame.draw.line(self.screen, (0, 0, 0), (col * 100 + 15, row * 100 + 15), (col * 100 + 85, row * 100 + 85), 15)
+                    pygame.draw.line(self.screen, (0, 0, 0), (col * 100 + 15, row * 100 + 85), (col * 100 + 85, row * 100 + 15), 15)
+                
+                # Draw the square
+                elif self.board[row, col] == -1:
+                    pygame.draw.circle(self.screen, (0, 0, 0), (col * 100 + 50, row * 100 + 50), 40, 15)
+        
+        # Draw the grid
+        for i in range(1, 3):
+            pygame.draw.line(self.screen, (0, 0, 0), (0, i * 100), (300, i * 100), 5)
+            pygame.draw.line(self.screen, (0, 0, 0), (i * 100, 0), (i * 100, 300), 5)
+
+        # Update the display
+        pygame.display.flip()
+        
+        # time.sleep(0.1)  # Delay for 100 milliseconds # Uncomment to see the moves taken by the agent in real time
+
+    # Function to close the pygame window
+    def close_pygame(self) -> None:
+        """
+            Args:
+                None
+            
+            Returns:
+                None
+            
+            Concept:
+                Closes the pygame window.
+        """
+        
+        # Close the pygame window
+        pygame.quit()
+
+# Class for QLearningAgent
+class QLearningAgent:
+
+    # Initializing the class
+    def __init__(self, player: int, epsilon: int=0.1, alpha: int=0.5, gamma: int=0.9) -> None:
+        """
+            Args:
+                player: The specifier for the current player
+                epsilon: The exploration rate
+                alpha: The learning rate
+                gamma: The discount factor
+            
+            Returns:
+                None
+            
+            Concept:
+                Initializes the class QLearningAgent with the given parameters; and sets the q_table to an empty dictionary.
+        """
+        
+        # Setting the parameters
+        self.q_table = defaultdict(lambda: 0)
+        self.epsilon = epsilon
+        self.alpha = alpha
+        self.gamma = gamma
+        self.player = player
+    
+    # Function to get the state of the board
+    def get_state(self, board: np.ndarray) -> tuple:
+        """
+            Args:
+                board: The current board being played at the moment
+            
+            Returns:
+                State as the board condition
+                
+            Concept:
+                Returns the state as the board condition.
+        """
+        
+        return tuple(map(tuple, board))
+    
+    # Function to choose an action
+    def choose_action(self, board: np.ndarray, available_actions: list) -> int:
+        """
+            Args:
+                board: The current board being played at the moment
+                available_actions: A list of actions that can be taken on the current board
+            
+            Returns:
+                A calculated action of the available actions
+            
+            Concept:
+                Returns a calculated action of the available actions and if epsilon value is greater than a random value then a random action is returned.
+        """
+        
+        # if epsilon value is greater than a random value then a random action is returned
+        if random.uniform(0, 1) < self.epsilon:
+            return random.choice(available_actions)
+        
+        q_values = [self.q_table[(self.get_state(board), action)] for action in available_actions]
+        max_q = max(q_values)
+        
+        return random.choice([a for a, q in zip(available_actions, q_values) if q == max_q])
+    
+    # Function to update the q_table
+    def update_q_table(self, state: tuple, action: int, reward: int, next_state: tuple, next_actions: list) -> None:
+        """
+            Args:
+                state: The current board at the moment
+                action: Action taken by the agent
+                reward: reward given for that action in that condition
+                next_state: The next board to played
+                next_actions: Actions available to model on the next board
+            
+            Returns:
+                None
+            
+            Concept:
+                Updates the q_table with the given parameters.
+        """
+        
+        # Updating the q_table
+        current_q = self.q_table[(state, action)]
+        if next_actions:
+            max_next_q = max([self.q_table[(next_state, a)] for a in next_actions])
+        else:
+            max_next_q = 0
+        
+        # Q-learning update rule
+        self.q_table[(state, action)] = current_q + self.alpha * (reward + self.gamma * max_next_q - current_q)
+    
+    # Function to save the model
+    def save_model(self, filename: str) -> None:
+        """
+            Args:
+                filename: filename for the q_table to be saved in
+            
+            Returns:
+                None
+            
+            Concept:
+                Saves the q_table in the given filename.
+        """
+        
+        import pickle
+
+        # Saving the q_table as a pickle file
+        with open(filename, 'wb') as f:
+            pickle.dump(dict(self.q_table), f)
+    
+    # Function to load the model
+    def load_model(self, filename: str) -> None:
+        """
+            Args:
+                filename: filename for the q_table to be loaded from
+            
+            Returns:
+                None
+            
+            Concept:
+                Loads the q_table from the given filename.
+        """
+        
+        import pickle
+
+        # Loading the q_table from the pickle file
+        with open(filename, 'rb') as f:
+            self.q_table = defaultdict(lambda: 0, pickle.load(f))
+
+# Function to train the agent
+def train(episodes: int, epsilon: float, alpha: float, gamma: float) -> None:
+    env = TicTacToe()
+
+    # Initialize the agents 
+    agent1 = QLearningAgent(player=1, epsilon=epsilon, alpha=alpha, gamma=gamma)
+    agent2 = QLearningAgent(player=-1, epsilon=epsilon, alpha=alpha, gamma=gamma)
+    
+    try:
+        # Train the agents
+        for episode in range(episodes):
+            print(f"Episode {episode + 1}/{episodes}")
+            
+            state = env.reset()
+            done = False
+            while not done:
+                player = env.current_player
+                agent = agent1 if player == 1 else agent2
+                state_tuple = agent.get_state(state)
+
+                # Choose an action
+                actions = env.available_actions()
+                action = agent.choose_action(state, actions)
+                
+                # Take the action and get the next state and reward
+                reward, critical_location = env.check_critical(player)
+                
+                """
+                    If critical location is given and agent wins, give 2 reward points
+                    If critical location is given and agent doesn't mark there and loses, give 2 penalty points
+                """
+                if critical_location:
+                    if action == critical_location:
+                        reward = 2
+                    elif done and reward == -1:
+                        reward = -2
+                
+                # Update the state
+                reward_move, done = env.make_move(action)
+                next_state_tuple = agent.get_state(env.board)
+                next_actions = env.available_actions()
+                agent.update_q_table(state_tuple, action, reward + reward_move, next_state_tuple, next_actions)
+                
+                if done and reward != 0:
+                    other_agent = agent2 if player == 1 else agent1
+                    other_agent.update_q_table(state_tuple, action, -reward, next_state_tuple, next_actions)
+                
+                # Update the state
+                for event in pygame.event.get():
+                    if event.type == pygame.QUIT:
+                        pygame.quit()
+                        return
+
+    finally:
+        env.close_pygame()
+        print(f"Player 1 wins: {env.player1_wincount} times")
+        print(f"Player 2 wins: {env.player2_wincount} times")
+        print(f"Draws: {env.draw_count}")
+
+    # Save the trained Q-tables
+    agent1.save_model('Files/agent1_q_table.pkl')
+    agent2.save_model('Files/agent2_q_table.pkl')
+
+if __name__ == "__main__":
+    epsilon = 0.25    # Exploration Rate
+    alpha = 0.07      # Learning Rate
+    gamma = 0.8       # Discount Factor
+    episodes = 10000 # Iteration Count
+    
+    # Train the agents
+    train(episodes=episodes, epsilon=epsilon, alpha=alpha, gamma=gamma)
