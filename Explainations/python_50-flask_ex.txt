@@ -1,0 +1,23 @@
+# Importing Flask from flask module
+from flask import Flask
+
+# Creating an instance of Flask class
+app = Flask(__name__)
+
+# Creating a route for the root URL
+@app.route('/')
+def home():
+
+    # Returning a string when the root URL is accessed
+    return 'Hello, Flask!'
+
+# Creating a route for the /hello URL
+@app.route('/hello/<name>')
+def hello(name: str):
+    
+    # Returning a string when the /hello URL is accessed
+    return f'Hello, {name}!'
+
+# Running the Flask application
+if __name__ == '__main__':
+    app.run(debug=True)

@@ -96,8 +96,8 @@ Below is the list of topics that I plan to cover, categorized from beginner to a
   - [✅] UnsuperVised Learning
   - [✅] Reinforcement learning
 - [🟡] **Web Development**
-  - [🟡] Flask
-  - [ ] Django
+  - [✅] Flask
+  - [🟡] Django
   
 ## 📂 Directory Structure
 

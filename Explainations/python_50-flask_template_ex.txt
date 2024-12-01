@@ -1,0 +1,59 @@
+# Importing Flask, render_template, and request from flask module
+from flask import Flask, render_template, request
+
+# Importing SQLAlchemy from flask_sqlalchemy module
+from flask_sqlalchemy import SQLAlchemy
+
+# Creating an instance of Flask class
+app = Flask(__name__)
+
+# Creating a route for the root URL
+@app.route('/')
+def home():
+    # Returning a rendered template when the root URL is accessed
+    return render_template('index.html')
+
+# Creating a route for the /form URL
+@app.route('/form/')
+def index():
+    
+    # Returning a rendered form template when the /form URL is accessed
+    return render_template('form.html')
+
+# Creating a route for the /greet URL
+@app.route('/greet', methods=['POST'])
+def greet():
+    # Retrieving the name from the request object
+    name = request.form['name']
+
+    # Returning a string with name got from the request object
+    return f'Hello, {name}!'
+
+# Configuring the application to use SQLite database
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///flask_database.db'
+
+# Setting app context and creating an instance of SQLAlchemy class
+app.app_context().push()
+db = SQLAlchemy(app)
+
+# Creating a class for the User model
+class User(db.Model):
+
+    # Defining the columns for the User model
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(80), nullable=False)
+
+# Creating the database tables
+db.create_all()
+
+# Returning a rendered template when the /User URL is accessed
+@app.route('/User/')
+def user():
+    
+    # Retrieving all users from the database
+    users = User.query.all()
+    return render_template('index.html', users=users)
+
+# Running the application
+if __name__ == '__main__':
+    app.run(debug=True)
