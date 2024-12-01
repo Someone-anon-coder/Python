@@ -94,7 +94,10 @@ Below is the list of topics that I plan to cover, categorized from beginner to a
   - [✅] Working with Libraries like Scikit-Learn
   - [✅] SuperVised Learning
   - [✅] UnsuperVised Learning
-  - [✅] Reinforcement Learning
+  - [✅] Reinforcement learning
+- [🟡] **Web Development**
+  - [🟡] Flask
+  - [ ] Django
   
 ## 📂 Directory Structure
 
