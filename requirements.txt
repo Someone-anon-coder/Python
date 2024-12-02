@@ -1,0 +1,17 @@
+beautifulsoup4
+Django
+Flask
+Flask-SQLAlchemy
+fonttools
+matplotlib
+mysql-connector-python
+numpy
+pygame
+python-dotenv
+requests
+scikit-learn
+scipy
+secure-smtplib
+selenium
+SQLAlchemy
+webdriver-manager

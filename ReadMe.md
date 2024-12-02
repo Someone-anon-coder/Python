@@ -95,15 +95,29 @@ Below is the list of topics that I plan to cover, categorized from beginner to a
   - [✅] SuperVised Learning
   - [✅] UnsuperVised Learning
   - [✅] Reinforcement learning
-- [🟡] **Web Development**
+- [✅] **Web Development**
   - [✅] Flask
-  - [🟡] Django
+  - [✅] Django
   
 ## 📂 Directory Structure
 
 - **Code**: Contains the actual code files for each topic, categorized by folders.
 - **Explanations**: This folder includes markdown or text files explaining each program, code snippets, and concepts covered.
 - **Files**: This folder holds any input, output, or temporary files created or used during the program runs.
+- **Images**: Any images used in the explanations or code comments are stored here
+- **Packages**: This folder contains the packages created during the course of the project, including any libraries or modules developed.
+- **myprojects**: This folder contains the django projects created during the course of the project.
+- **Database**: This folder contains the database files created during the course of the project.
+- **templates**: This folder contains the templates used in the django and flask projects.
+- **README.md**: This file is the main entry point for the project, providing an overview of the project, its goals, and how to use it.
+- **requirements.txt**: This file lists all the dependencies required to run the project, including Python versions and any external libraries.
+
+## How to use this project
+  - Clone the repository using `git clone https://github.com/Someone-anon-coder/Python.git`
+  - Navigate to the project directory using `cd Python`
+  - Run `python -m venv Python` to create a virtual environment
+  - Activate the virtual environment using `source Python/bin/activate`
+  - Install the required packages by running `pip install -r requirements.txt`
 
 ## 🚀 How to Contribute
 
